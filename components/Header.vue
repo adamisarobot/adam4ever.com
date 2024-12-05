@@ -1,6 +1,8 @@
 <template>
   <header>
-    <img class="logo" alt="Adam4ever" src="/img/adam4ever.svg" />
+    <nuxt-link class="logo" to="/">
+      <img src="/img/adam4ever.svg" alt="Adam4ever - the blogroject" />
+    </nuxt-link>
     <nav>
       <ul>
         <li>
@@ -21,15 +23,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 3rem;
-  padding: 1rem;
-  border-bottom: 4px solid #333;
-}
-img.logo {
-  max-width: 3rem;
-  padding: 0.25rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 3px solid var(--slate-950);
 }
 nav {
+  font-size: 1rem;
   ul {
     display: flex;
     gap: 1rem;
@@ -38,11 +36,25 @@ nav {
     list-style: none;
   }
   a {
-    text-decoration: none;
-    color: #333;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: var(--slate-950);
+    text-decoration-thickness: 2px;
+    color: var(--slate-500);
+    &:hover {
+      color: var(--slate-950);
+    }
   }
   a.active {
     color: #000;
+  }
+}
+.logo {
+  width: 3rem;
+  padding: 0.25rem;
+
+  svg {
+    width: 100%;
   }
 }
 </style>

@@ -1,5 +1,33 @@
 @import 'reset.css';
 
+:root {
+  /* -- greys -- */
+  --slate-50: #f9fafb;
+  --slate-100: #f3f4f6;
+  --slate-200: #e5e7eb;
+  --slate-300: #d1d5db;
+  --slate-400: #9ca3af;
+  --slate-500: #6b7280;
+  --slate-600: #4b5563;
+  --slate-700: #374151;
+  --slate-800: #1f2937;
+  --slate-900: #111827;
+  --slate-950: #030712;
+}
+
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+  color: var(--slate-950);
+}
+
+h1 {
+  font-size: clamp(3rem, 3vw, 4rem);
+  font-family: 'Space Grotesk', serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
