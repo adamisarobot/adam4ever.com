@@ -1,3 +1,3 @@
-# About Content v2
+# About
 
-[Back home](/)
+Bloging about building a blog on the blog being built.
