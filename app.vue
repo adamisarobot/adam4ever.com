@@ -1,23 +1,19 @@
 <script lang="ts" setup>
 import '~/assets/styles/base.css';
+const route = useRoute();
+const useTitle = ref('Adam4ever');
 
 useHead({
-  title: 'Adam4ever',
+  titleTemplate: (title) => {
+    useTitle.value = route ? `${title} - Adam4ever` : 'Adam4ever';
+    return useTitle.value;
+  },
   meta: [
     {
       name: 'description',
-      content: 'Adam4ever is a website about Adam.',
+      content: 'Adam4ever - the blogroject',
     },
   ],
-});
-
-useSeoMeta({
-  title: 'Adam4ever',
-  ogTitle: 'Adam4ever',
-  description: 'Adam4ever is a website about Adam.',
-  ogDescription: 'Adam4ever is a website about Adam.',
-  ogImage: '',
-  twitterCard: 'summary_large_image',
 });
 </script>
 
