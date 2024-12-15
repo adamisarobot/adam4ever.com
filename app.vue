@@ -14,6 +14,12 @@ useHead({
       content: 'Adam4ever - the blogroject',
     },
   ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://adam4ever.com' + route.path,
+    },
+  ],
 });
 </script>
 
