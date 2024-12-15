@@ -8,7 +8,11 @@ export default defineNuxtConfig({
   },
   ssr: true,
   devtools: { enabled: true },
-  modules: ['@nuxt/content', '@nuxtjs/google-fonts'],
+  modules: [
+    '@nuxt/content',
+    '@nuxtjs/google-fonts',
+    '@nuxthub/core',
+  ],
 
   routeRules: {
     '/': { prerender: true },
