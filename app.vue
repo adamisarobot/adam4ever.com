@@ -19,7 +19,7 @@ useHead({
 
 <template>
   <div>
-    <Header />
+    <Header style="display: none" />
     <NuxtPage />
   </div>
 </template>

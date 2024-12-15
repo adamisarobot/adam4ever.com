@@ -6,10 +6,7 @@
     <nav>
       <ul>
         <li>
-          <nuxt-link to="/">Home</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/about">About</nuxt-link>
+          <nuxt-link to="/feed">Feed</nuxt-link>
         </li>
       </ul>
     </nav>
