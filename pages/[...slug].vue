@@ -11,9 +11,22 @@ useHead({
 </script>
 
 <template>
-  <main>
-    <ContentDoc />
+  <main class="wide">
+    <div class="feed">
+      <ContentDoc />
+      <div class="return">
+        <NuxtLink to="/">Back</NuxtLink>
+      </div>
+    </div>
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.wide {
+  grid-template-columns: 1fr 800px 1fr;
+}
+.return {
+  margin-top: 1rem;
+  text-align: right;
+}
+</style>

@@ -17,17 +17,31 @@ useHead({
 
 <template>
   <main>
-    <section class="title">
-      <h1 class="hero">Adam4ever</h1>
-      <ul>
-        <li v-for="blog in blogs">
-          <NuxtLink :to="blog._path">
-            {{ blog.title }}
-          </NuxtLink>
+    <section id="feed" class="feed">
+      <ul class="firehose">
+        <li class="card" v-for="blog in blogs">
+          <h2>
+            <NuxtLink :to="blog._path">{{ blog.title }}</NuxtLink>
+          </h2>
+
+          <p>{{ blog.description }}</p>
         </li>
       </ul>
     </section>
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.firehose {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style-type: none;
+  padding: 0;
+}
+
+.card {
+  padding: 1rem;
+  border: 1px solid #eee;
+}
+</style>
