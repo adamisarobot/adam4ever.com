@@ -43,6 +43,7 @@ const convertDate = (date: string) => {
 
           <p>{{ blog.description }}</p>
         </li>
+        <!-- Componentize eventually -->
         <li class="bsky-post" v-if="loading">Loading...</li>
         <li class="bsky-post" v-if="error">{{ error }}</li>
         <li class="bsky-post" v-if="!loading && !error && !posts.length">
@@ -58,7 +59,7 @@ const convertDate = (date: string) => {
             :src="post.post.author.avatar"
             :alt="post.post.author.displayName"
           />
-          <h2>{{ post.post.author.displayName }}</h2>
+          <h2>@{{ post.post.author.handle }}</h2>
           <p>{{ post.post.record.text }}</p>
           <p>{{ convertDate(post.post.record.createdAt) }}</p>
         </li>
@@ -77,7 +78,9 @@ const convertDate = (date: string) => {
 
   li {
     padding: 1rem;
-    border: 1px solid #eee;
+    background-color: #fff;
+    box-shadow: 4px 4px rgba(0, 0, 0, 1);
+    border: 2px solid var(--slate-600);
   }
 
   .bsky-post {
@@ -86,7 +89,6 @@ const convertDate = (date: string) => {
     background-origin: content-box;
     background-image: url('/img/bsky.svg');
     background-repeat: no-repeat;
-    border-color: var(--bsky);
   }
 }
 </style>
