@@ -17,7 +17,7 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: 'https://adam4ever.com' + route.path,
+      href: `https://adam4ever.com/`,
     },
   ],
 });
