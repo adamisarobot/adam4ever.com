@@ -6,18 +6,8 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
     },
   },
-  ssr: true,
+
   devtools: { enabled: true },
-  modules: [
-    '@nuxt/content',
-    '@nuxtjs/google-fonts',
-    '@nuxthub/core',
-  ],
-
-  routeRules: {
-    '/': { prerender: true },
-  },
-
   googleFonts: {
     families: {
       Arvo: {
@@ -34,5 +24,20 @@ export default defineNuxtConfig({
     },
   },
 
+  modules: ['@nuxt/content', '@nuxtjs/google-fonts', '@nuxthub/core'],
+
+  routeRules: {
+    '/': { prerender: true },
+  },
+
+  runtimeConfig: {
+    public: {},
+    private: {
+      blueskyHandle: process.env.BLUESKY_HANDLE,
+      blueskyPassword: process.env.BLUESKY_PASSWORD,
+    },
+  },
+
+  ssr: true,
   compatibilityDate: '2024-12-04',
 });
