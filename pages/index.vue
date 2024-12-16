@@ -21,13 +21,6 @@ const { data: blogs } = await useAsyncData('blog', () =>
 
 useHead({
   title: 'The Blogroject',
-  meta: [
-    {
-      name: 'description',
-      content:
-        'Adam4ever - the blogroject. Bloging about building a blog on the blog being built.',
-    },
-  ],
 });
 
 const convertDate = (date: string) => {

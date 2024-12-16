@@ -11,7 +11,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Adam4ever - the blogroject',
+      content: 'Bloging about building a blog on the blog being built.',
     },
   ],
   link: [

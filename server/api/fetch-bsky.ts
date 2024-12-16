@@ -6,6 +6,7 @@ export default defineEventHandler(
     const blueskyPassword = process.env.BLUESKY_PASSWORD;
 
     if (!blueskyHandle || !blueskyPassword) {
+      console.error('Credentials are not set');
       throw new Error(
         'Bluesky credentials are not set in environment variables.'
       );
@@ -17,6 +18,7 @@ export default defineEventHandler(
         identifier: blueskyHandle,
         password: blueskyPassword,
       });
+
       const response = await agent.getAuthorFeed({
         actor: blueskyHandle,
         filter: 'posts_and_author_threads',
