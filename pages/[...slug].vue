@@ -1,10 +1,17 @@
 <script lang="ts" setup>
+const path = useRoute().fullPath;
 useHead({
   title: 'Adam4ever - the blogroject',
   meta: [
     {
       name: 'description',
       content: 'Adam4ever - the blogroject',
+    },
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: `https://adam4ever.com${path}`,
     },
   ],
 });
