@@ -3,6 +3,18 @@ const { data: blogs } = await useAsyncData('blog', () =>
   queryContent('/blog').find()
 );
 
+const books = ref<any[]>([]);
+const loading = ref(true);
+onMounted(async () => {
+  try {
+    books.value = await $fetch('/api/fetch-hardcover');
+  } catch (err: any) {
+    books.value = err.message;
+  } finally {
+    loading.value = false;
+  }
+});
+
 useHead({
   title: 'The Blogroject',
 });
@@ -19,6 +31,14 @@ useHead({
           <p>{{ blog.description }}</p>
         </li>
         <BlueSky />
+
+        <li v-if="loading">Loading...</li>
+        <li v-if="books.length === 0 && !loading">No books found.</li>
+        <li v-for="book in books" :key="book.id">
+          <h3>{{ book.title }}</h3>
+          <p>{{ book.author }}</p>
+          <p>{{ book.published }}</p>
+        </li>
       </ul>
     </section>
   </main>
