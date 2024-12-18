@@ -11,19 +11,30 @@ export default defineEventHandler(async (event) => {
     {
       me {
         user_books(where: {status_id: {_eq: 2}}) {
-          rating
           book {
             title
+            subtitle
+            rating
+            cached_contributors
+            book_series {
+              id
+              position
+              series {
+                name
+              }
+            }
+            cached_image
           }
+          date_added
         }
       }
     }
   `;
 
   try {
-    const data = await $fetch(`/graphql`, {
+    const data = await $fetch(`/v1/graphql`, {
       method: 'POST',
-      baseURL: 'https://api.hardcover.com',
+      baseURL: 'https://api.hardcover.app/',
       headers: {
         'Content-Type': 'application/json',
         authorization: `Bearer ${hardCoverAPIKey}`,
@@ -31,10 +42,7 @@ export default defineEventHandler(async (event) => {
       body: JSON.stringify({ query }),
     });
 
-    console.log('Res', data);
-    // const data = await response.json();
-
-    // return data;
+    return data;
   } catch (error: any) {
     console.error('Error fetching Hardcover books:', error);
     throw new Error('Failed to fetch books');
