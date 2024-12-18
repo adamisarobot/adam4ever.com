@@ -35,6 +35,7 @@ export default defineNuxtConfig({
     private: {
       blueskyHandle: process.env.BLUESKY_HANDLE,
       blueskyPassword: process.env.BLUESKY_PASSWORD,
+      hardCoverAPIKey: process.env.HARDCOVER_API_KEY,
     },
   },
 
