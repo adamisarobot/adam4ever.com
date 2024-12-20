@@ -12,6 +12,13 @@ const { data, error } = await useAsyncData<BooksData>('books', () =>
   return data;
 });
 
+const { data: movies, error: movieError } = await useAsyncData('tmdb', () =>
+  $fetch('/api/fetch-tmdb')
+).then((data) => {
+  loading.value = false;
+  return data;
+});
+
 useHead({
   title: 'The Blogroject',
 });
@@ -47,6 +54,9 @@ useHead({
             </p>
           </div>
           <pre style="display: none"> {{ data.data }} </pre>
+        </li>
+        <li class="corner-icon tmdb">
+          {{ movies }}
         </li>
       </ul>
     </section>

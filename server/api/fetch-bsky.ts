@@ -4,6 +4,7 @@ export default defineEventHandler(
   async (event): Promise<AppBskyFeedGetAuthorFeed.Response['data']['feed']> => {
     const blueskyHandle = process.env.BLUESKY_HANDLE;
     const blueskyPassword = process.env.BLUESKY_PASSWORD;
+    console.log(blueskyHandle, blueskyPassword);
 
     if (!blueskyHandle || !blueskyPassword) {
       console.error('Credentials are not set');
