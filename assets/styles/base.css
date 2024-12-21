@@ -74,6 +74,13 @@ main {
   grid-area: 1 / 2 / 2 / 3;
 }
 
+.card {
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 4px 4px rgba(0, 0, 0, 1);
+  border: 2px solid var(--slate-600);
+}
+
 a {
   color: var(--slate-800);
   text-decoration: none;
