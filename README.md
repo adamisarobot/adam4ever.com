@@ -15,7 +15,7 @@ My intent is to blog about building a blog on the blog being built.
 [ ] Notion Publishing  
 [ ] State management & Feed structure  
 [ ] Screenshot open graph automation  
-[ ] Animated gifs and visitor counter  
+[ ] Animated gifs & visitor counter  
 [ ] Sorting / Pagination / Navigation  
 [ ] Breadcrumbs & Site map  
 [ ] RSS

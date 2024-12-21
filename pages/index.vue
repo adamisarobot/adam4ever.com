@@ -23,7 +23,7 @@ const { data: movies, error: movieError } = await useAsyncData<MoviesData>(
 });
 
 const excerpt = (overview: string) => {
-  return overview.split('.')[0];
+  return overview.split('.')[0] + '.';
 };
 
 useHead({
@@ -65,7 +65,7 @@ useHead({
         <li v-if="movies && !movieError" class="corner-icon tmdb">
           <h2>Liked movie</h2>
           <p>{{ movies.results[0].original_title }}</p>
-          <p>{{ excerpt(movies.results[0].overview) }}.</p>
+          <p>{{ excerpt(movies.results[0].overview) }}</p>
           <p>
             <img
               :src="

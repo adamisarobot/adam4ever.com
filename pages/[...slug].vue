@@ -20,7 +20,7 @@ useHead({
 <template>
   <main class="wide">
     <div class="feed">
-      <ContentDoc />
+      <ContentDoc class="card" />
       <div class="return">
         <NuxtLink to="/">Back</NuxtLink>
       </div>
@@ -36,5 +36,18 @@ useHead({
 .return {
   margin-top: 1rem;
   text-align: right;
+
+  a {
+    display: inline-block;
+    background-image: url('/img/left-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 24px;
+    padding-left: 2rem;
+    background-position: center left;
+
+    &:visited {
+      color: var(--slate-900);
+    }
+  }
 }
 </style>
