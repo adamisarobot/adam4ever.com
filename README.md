@@ -1,8 +1,9 @@
 # adam4ever.com
+_Blogging about building a blog on the blog being built._
 
 My personal blog project.  
 A blogroject if you will.  
-My intent is to blog about building a blog on the blog being built.
+
 
 ## To dos
 
