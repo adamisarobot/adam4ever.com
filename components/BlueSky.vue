@@ -25,7 +25,7 @@ const convertDate = (date: string) => {
 </script>
 
 <template>
-  <!-- This needs a refactor, moved to component for now -->
+  <!-- This whole thing needs a refactor, moved to component for now -->
   <li class="bsky-post" v-if="loading">Loading...</li>
   <li class="bsky-post" v-if="error">{{ error }}</li>
   <li class="bsky-post" v-if="!loading && !error && !posts.length">
