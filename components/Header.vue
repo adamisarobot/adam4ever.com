@@ -8,7 +8,4 @@
 
 <script setup lang="ts"></script>
 
-<style scoped>
-header {
-}
-</style>
+<style scoped></style>

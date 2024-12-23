@@ -1,4 +1,5 @@
 @import 'reset.css';
+@import 'fonts.css';
 
 :root {
   /* -- greys -- */
@@ -14,6 +15,10 @@
   --slate-900: #111827;
   --slate-950: #030712;
   --bsky: #1185fe;
+  --hardcover: #6366f1;
+  --hardcover-dark: #312e81;
+  --tmdb: #00b3e5;
+  --tmdb-2: #90cea1;
 }
 
 body {
@@ -55,8 +60,11 @@ h2 {
 }
 
 h1.hero {
-  font-size: clamp(3.25rem, 6vw, 16rem);
-  font-family: Arvo;
+  font-size: clamp(3.25rem, 6vw, 18rem);
+  /* font-family: Arvo; */
+  font-family: 'ScratchedFont', serif;
+  font-weight: 500;
+  font-display: auto;
   text-align: center;
 }
 
