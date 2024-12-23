@@ -1,5 +1,4 @@
 @import 'reset.css';
-@import 'fonts.css';
 
 :root {
   /* -- greys -- */
@@ -61,10 +60,7 @@ h2 {
 
 h1.hero {
   font-size: clamp(3.25rem, 6vw, 18rem);
-  /* font-family: Arvo; */
-  font-family: 'ScratchedFont', serif;
-  font-weight: 500;
-  font-display: auto;
+  font-family: Arvo;
   text-align: center;
 }
 
