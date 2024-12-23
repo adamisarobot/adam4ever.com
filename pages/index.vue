@@ -7,6 +7,13 @@ const { data: blogs } = await useAsyncData('blog', () =>
   queryContent('/blog').find()
 );
 
+const { data: posts, error: postError } = await useAsyncData('bsky', () =>
+  $fetch('/api/fetch-bsky')
+).then((data) => {
+  loading.value = false;
+  return data;
+});
+
 const { data, error } = await useAsyncData<BooksData>('books', () =>
   $fetch('/api/fetch-hardcover')
 ).then((data) => {
@@ -23,7 +30,7 @@ const { data: movies, error: movieError } = await useAsyncData<MoviesData>(
 });
 
 const excerpt = (overview: string) => {
-  return overview.split('.')[0] + '.';
+  return overview.split('.')[0] + '...';
 };
 
 useHead({
@@ -41,7 +48,7 @@ useHead({
           </h2>
           <p>{{ blog.description }}</p>
         </li>
-        <BlueSky />
+        <BlueSky :posts="posts" :error="postError" />
 
         <li v-if="loading">Loading...</li>
         <li v-if="error && !loading">No books found.</li>

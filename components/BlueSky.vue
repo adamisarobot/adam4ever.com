@@ -1,19 +1,28 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import type { NuxtError } from '#app';
 
-const posts = ref<any[]>([]);
-const loading = ref(true);
-const error = ref<string | null>(null);
+// Define FeedViewPost type
+type FeedViewPost = {
+  post: {
+    author: {
+      avatar: string;
+      displayName: string;
+      handle: string;
+    };
+    record: {
+      text: string;
+      createdAt: string;
+    };
+  };
+};
 
-onMounted(async () => {
-  try {
-    posts.value = await $fetch('/api/fetch-bsky');
-  } catch (err: any) {
-    error.value = err.message;
-  } finally {
-    loading.value = false;
-  }
-});
+// Define SerializeObject type
+type SerializeObject<T> = T;
+
+defineProps<{
+  posts: SerializeObject<FeedViewPost>[] | null;
+  error: NuxtError<unknown> | null;
+}>();
 
 const convertDate = (date: string) => {
   return new Date(date).toLocaleDateString('en-US', {
@@ -26,16 +35,9 @@ const convertDate = (date: string) => {
 
 <template>
   <!-- This whole thing needs a refactor, moved to component for now -->
-  <li class="bsky-post" v-if="loading">Loading...</li>
   <li class="bsky-post" v-if="error">{{ error }}</li>
-  <li class="bsky-post" v-if="!loading && !error && !posts.length">
-    No posts found.
-  </li>
-  <li
-    class="bsky-post"
-    v-if="!loading && !error && posts.length"
-    v-for="post in posts"
-  >
+  <li class="bsky-post" v-if="!error && !posts">No posts found.</li>
+  <li class="bsky-post" v-if="!error && posts" v-for="post in posts">
     <img
       style="display: none"
       :src="post.post.author.avatar"
