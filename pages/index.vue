@@ -72,7 +72,7 @@ useHead({
         <li v-if="movies && !movieError" class="corner-icon tmdb">
           <h2>Liked movie</h2>
           <p>{{ movies.results[0].original_title }}</p>
-          <p>{{ excerpt(movies.results[0].overview) }}</p>
+          <p style="display: none">{{ excerpt(movies.results[0].overview) }}</p>
           <p>
             <img
               :src="
@@ -83,7 +83,7 @@ useHead({
               :alt="movies.results[0].original_title"
             />
           </p>
-          <pre style="display: none">{{ movies }}</pre>
+          <pre>{{ movies }}</pre>
         </li>
       </ul>
     </section>

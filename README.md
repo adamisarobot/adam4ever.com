@@ -1,21 +1,21 @@
 # adam4ever.com
+
 _Blogging about building a blog on the blog being built._
 
 My personal blog project.  
-A blogroject if you will.  
+A blogroject if you will.
 
+## In Progress
 
-## To dos
+[ ] Notion Publishing  
+[ ] Screenshot open graph automation  
+[ ] Feed structure / Storage
 
-[x] Bluesky connection  
-[x] Hardcover connection  
-[x] TMDB connection  
+## To Dos
+
 [ ] Spotify connection  
 [ ] Weather API?  
-[ ] Joke API?  
-[ ] Notion Publishing  
-[ ] State management & Feed structure  
-[ ] Screenshot open graph automation  
+[ ] Joke API?
 [ ] Animated gifs & visitor counter  
 [ ] Sorting / Pagination / Navigation  
 [ ] Breadcrumbs & Site map  
@@ -24,5 +24,10 @@ A blogroject if you will.
 ## Maybes
 
 [ ] Authentication / Private pages  
-[ ] Long term data storage  
 [ ] Lighthouse score optimization
+
+## Done
+
+[x] Bluesky connection  
+[x] Hardcover connection  
+[x] TMDB connection

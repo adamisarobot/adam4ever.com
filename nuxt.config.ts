@@ -36,6 +36,8 @@ export default defineNuxtConfig({
       blueskyHandle: process.env.BLUESKY_HANDLE,
       blueskyPassword: process.env.BLUESKY_PASSWORD,
       hardCoverAPIKey: process.env.HARDCOVER_API_KEY,
+      tmdbAPIKEY: process.env.TMDB_API_KEY,
+      tmdbAccountID: process.env.TMDB_ACCOUNT_ID,
     },
   },
 
