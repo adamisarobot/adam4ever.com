@@ -14,18 +14,13 @@ useHead({
       content: 'Bloging about building a blog on the blog being built.',
     },
   ],
-  link: [
-    {
-      rel: 'canonical',
-      href: `https://adam4ever.com/`,
-    },
-  ],
 });
 </script>
 
 <template>
   <div>
-    <Header />
+    <NuxtLoadingIndicator />
+    <HeaderA4E />
     <NuxtPage />
   </div>
 </template>

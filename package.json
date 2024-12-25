@@ -10,6 +10,7 @@
   "dependencies": {
     "@atproto/api": "^0.13.20",
     "@nuxt/content": "^2.13.4",
+    "@nuxt/image": "^1.8.1",
     "@nuxthub/core": "^0.8.8",
     "@nuxtjs/google-fonts": "^3.2.0",
     "nuxt": "^3.14.1592"
