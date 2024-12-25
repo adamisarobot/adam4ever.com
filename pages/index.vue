@@ -7,6 +7,13 @@ const { data: blogs } = await useAsyncData('blog', () =>
   queryContent('/blog').find()
 );
 
+const { data: song } = await useAsyncData('lastSong', () =>
+  $fetch('/api/fetch-spotify-song')
+).then((data) => {
+  loading.value = false;
+  return data;
+});
+
 const { data: posts, error: postError } = await useAsyncData('bsky', () =>
   $fetch('/api/fetch-bsky')
 ).then((data) => {
@@ -53,7 +60,7 @@ useHead({
         <li v-if="loading">Loading...</li>
         <li v-if="error && !loading">No books found.</li>
         <li v-if="data && !error" class="corner-icon hardcover">
-          <h2>@adam4ever</h2>
+          <h2>Currently Reading</h2>
           <div class="box">
             <img
               :src="data.data.me[0].user_books[0].book.cached_image.url"
@@ -83,7 +90,19 @@ useHead({
               :alt="movies.results[0].original_title"
             />
           </p>
-          <pre>{{ movies }}</pre>
+          <pre style="display: none">{{ movies }}</pre>
+        </li>
+        <li v-if="song && !loading" class="corner-icon spotify">
+          <h2>Recently played</h2>
+          <p>{{ song.name }} - {{ song.artists[0].name }}</p>
+          <p>
+            <img
+              :src="song.album_art[1].url"
+              :alt="song.name"
+              :width="song.album_art[1].width"
+            />
+          </p>
+          <pre style="display: none">{{ song }}</pre>
         </li>
       </ul>
     </section>
@@ -134,6 +153,10 @@ useHead({
   .tmdb {
     background-size: 100px;
     background-image: url('/img/tmdb.svg');
+  }
+
+  .spotify {
+    background-image: url('/img/spotify.svg');
   }
 }
 </style>

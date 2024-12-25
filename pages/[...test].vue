@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // This is a working example of a dynamic route
-// doesnt wokr with the ContentDoc component
+// doesnt work with the ContentDoc component
 const route = useRoute();
 const page = route.params.slug[0];
 

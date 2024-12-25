@@ -7,13 +7,11 @@ A blogroject if you will.
 
 ## In Progress
 
-[ ] Notion Publishing  
 [ ] Screenshot open graph automation  
 [ ] Feed structure / Storage
 
 ## To Dos
 
-[ ] Spotify connection  
 [ ] Weather API?  
 [ ] Joke API?
 [ ] Animated gifs & visitor counter  
@@ -28,6 +26,9 @@ A blogroject if you will.
 
 ## Done
 
+### Proof of Concepts
+
 [x] Bluesky connection  
 [x] Hardcover connection  
-[x] TMDB connection
+[x] TMDB connection  
+[x] Spotify connection

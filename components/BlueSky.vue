@@ -23,14 +23,6 @@ defineProps<{
   posts: SerializeObject<FeedViewPost>[] | null;
   error: NuxtError<unknown> | null;
 }>();
-
-const convertDate = (date: string) => {
-  return new Date(date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-};
 </script>
 
 <template>
@@ -45,7 +37,8 @@ const convertDate = (date: string) => {
     />
     <h2>@{{ post.post.author.handle }}</h2>
     <p>{{ post.post.record.text }}</p>
-    <p>{{ convertDate(post.post.record.createdAt) }}</p>
+    <p>{{ formatDatetime.UTCtoLocal(post.post.record.createdAt) }}</p>
+    <pre style="display: none">{{ formatData.bskyPost(post) }}</pre>
   </li>
 </template>
 
