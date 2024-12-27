@@ -1,26 +1,8 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app';
 
-// Define FeedViewPost type
-type FeedViewPost = {
-  post: {
-    author: {
-      avatar: string;
-      displayName: string;
-      handle: string;
-    };
-    record: {
-      text: string;
-      createdAt: string;
-    };
-  };
-};
-
-// Define SerializeObject type
-type SerializeObject<T> = T;
-
 defineProps<{
-  posts: SerializeObject<FeedViewPost>[] | null;
+  post: BskyPost | null;
   error: NuxtError<unknown> | null;
 }>();
 </script>
@@ -28,17 +10,16 @@ defineProps<{
 <template>
   <!-- This whole thing needs a refactor, moved to component for now -->
   <li class="bsky-post" v-if="error">{{ error }}</li>
-  <li class="bsky-post" v-if="!error && !posts">No posts found.</li>
-  <li class="bsky-post" v-if="!error && posts" v-for="post in posts">
+  <li class="bsky-post" v-if="!error && !post">No posts found.</li>
+  <li class="bsky-post" v-if="!error && post">
     <img
       style="display: none"
-      :src="post.post.author.avatar"
-      :alt="post.post.author.displayName"
+      :src="post.author.avatar"
+      :alt="post.author.displayName"
     />
-    <h2>@{{ post.post.author.handle }}</h2>
-    <p>{{ post.post.record.text }}</p>
-    <p>{{ formatDatetime.UTCtoLocal(post.post.record.createdAt) }}</p>
-    <pre style="display: none">{{ formatData.bskyPost(post) }}</pre>
+    <h2>@{{ post.author.handle }}</h2>
+    <p>{{ post.record?.text }}</p>
+    <p>{{ formatDatetime.UTCtoLocal(post.record?.createdAt) }}</p>
   </li>
 </template>
 

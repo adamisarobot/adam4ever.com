@@ -1,3 +1,5 @@
+import type { AppBskyFeedGetAuthorFeed } from '@atproto/api';
+
 const spotifyTrack = (playlistTrack: SpotifyPlaylistTrack) => {
   const track = playlistTrack.track;
   if (!track) return;
@@ -12,12 +14,26 @@ const spotifyTrack = (playlistTrack: SpotifyPlaylistTrack) => {
   };
 };
 
-const bskyPost = (post: any) => {
+const bskyPost = (post: AppBskyFeedGetAuthorFeed.Response['data']['feed']) => {
   if (!post) return;
 
-  return {
-    post,
+  const internal = post[0].post;
+  const author = internal.author;
+  const record = internal.record;
+
+  const bPost: BskyPost = {
+    author: {
+      avatar: author.avatar,
+      displayName: author.displayName,
+      handle: author.handle,
+    },
+    record: {
+      text: record.text,
+      createdAt: record.createdAt,
+    },
   };
+
+  return bPost;
 };
 
 export default {
