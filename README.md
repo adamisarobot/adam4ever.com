@@ -23,6 +23,7 @@ A blogroject if you will.
 
 [ ] Authentication / Private pages  
 [ ] Lighthouse score optimization
+[ ] Fitbit connection
 
 ## Done
 
