@@ -7,13 +7,18 @@ A blogroject if you will.
 
 ## In Progress
 
-[ ] Screenshot open graph automation  
 [ ] Feed structure / Storage
+
+- Cloudflare Serverless functions to poll data
+- Storage in Cloudflare KV
+- Refactor API routes in FE to use feed.
+
+[ ] Screenshot open graph automation
 
 ## To Dos
 
 [ ] Weather API?  
-[ ] Joke API?
+[ ] Joke API?  
 [ ] Animated gifs & visitor counter  
 [ ] Sorting / Pagination / Navigation  
 [ ] Breadcrumbs & Site map  
@@ -22,8 +27,9 @@ A blogroject if you will.
 ## Maybes
 
 [ ] Authentication / Private pages  
-[ ] Lighthouse score optimization
-[ ] Fitbit connection
+[ ] Lighthouse score optimization  
+[ ] Fitbit connection  
+[ ] Near Real-time updates
 
 ## Done
 
