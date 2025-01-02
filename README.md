@@ -10,6 +10,12 @@ A blogroject if you will.
 [ ] Screenshot open graph automation  
 [ ] Feed structure / Storage
 
+- Cloudflare Serverless functions to poll data
+- Storage in Cloudflare D1
+- Refactor API routes in FE to use feed.
+
+[ ] Screenshot open graph automation
+
 ## To Dos
 
 [ ] Weather API?  
