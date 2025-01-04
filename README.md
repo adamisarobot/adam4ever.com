@@ -20,10 +20,11 @@ A blogroject if you will.
 
 [ ] Weather API?  
 [ ] Joke API?
-[ ] Animated gifs & visitor counter  
+[ ] Animated gifs?  
 [ ] Sorting / Pagination / Navigation  
 [ ] Breadcrumbs & Site map  
 [ ] RSS
+[ ] Custom analytics - Visitor Counter  
 
 ## Maybes
 
