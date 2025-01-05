@@ -7,7 +7,7 @@ A blogroject if you will.
 
 ## In Progress
 
-[ ] Screenshot open graph automation
+- [ ] Screenshot open graph automation
 
 - [ ] Cloudflare Serverless functions to poll data
   - [x] Hardcover
@@ -19,30 +19,30 @@ A blogroject if you will.
 
 ## To Dos
 
-[ ] Weather API?  
-[ ] Joke API?  
-[ ] Animated gifs?  
-[ ] Sorting / Pagination / Navigation  
-[ ] Breadcrumbs & Site map  
-[ ] RSS  
-[ ] Custom analytics - Visitor Counter  
-[ ] Code Display widget  
-[ ] D&D stat block widget
-[ ] Text widgets / Emoji support
+- [ ] Weather API?
+- [ ] Joke API?
+- [ ] Animated gifs?
+- [ ] Sorting / Pagination / Navigation
+- [ ] Breadcrumbs & Site map
+- [ ] RSS
+- [ ] Custom analytics - Visitor Counter
+- [ ] Code Display widget
+- [ ] D&D stat block widget
+- [ ] Text widgets / Emoji support
 
 ## Maybes
 
-[ ] Authentication / Private pages  
-[ ] Lighthouse score optimization  
-[ ] Fitbit connection
+- [ ] Authentication / Private pages
+- [ ] Lighthouse score optimization
+- [ ] Fitbit connection
 
 ## Done
 
 ### Proof of Concepts
 
-[x] Feed structure / Storage  
-[x] Bluesky connection  
-[x] Hardcover connection  
-[x] Scheduled worker retrieving and storing data  
-[x] TMDB connection  
-[x] Spotify connection
+- [x] Feed structure / Storage
+- [x] Bluesky connection
+- [x] Hardcover connection
+- [x] Scheduled worker retrieving and storing data
+- [x] TMDB connection
+- [x] Spotify connection
