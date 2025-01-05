@@ -8,7 +8,7 @@ A blogroject if you will.
 ## In Progress
 
 [ ] Screenshot open graph automation  
-[ ] Feed structure / Storage
+
 
 - Cloudflare Serverless functions to poll data
 - Storage in Cloudflare D1
@@ -36,7 +36,9 @@ A blogroject if you will.
 
 ### Proof of Concepts
 
+[x] Feed structure / Storage  
 [x] Bluesky connection  
-[x] Hardcover connection  
+[x] Hardcover connection
+  [x] Scheduled worker retrieving and storing data  
 [x] TMDB connection  
 [x] Spotify connection
