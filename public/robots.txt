@@ -1,0 +1,13 @@
+User-agent: GPTBot
+User-agent: Claude-Web
+User-agent: CCBot
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: *
+# Block search results
+Disallow: /search
+# Block filter pages
+Disallow: /products?*
+# Block print pages
+Disallow: /*/print

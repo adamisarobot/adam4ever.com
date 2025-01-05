@@ -11,9 +11,20 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Bloging about building a blog on the blog being built.',
+      content: 'Blogging about building a blog on the blog being built.',
     },
   ],
+});
+
+useServerSeoMeta({
+  ogDescription: 'Blogging about building a blog on the blog being built.',
+  ogTitle: 'Adam4ever.com',
+  ogImage: 'https://browser-worker.a4e.workers.dev?url=https://adam4ever.com',
+  ogImageAlt: "A screenshot of the blog's homepage.",
+  ogImageWidth: 1600,
+  ogImageHeight: 900,
+  ogUrl: 'https://adam4ever.com',
+  twitterCard: 'summary_large_image',
 });
 </script>
 
