@@ -27,3 +27,14 @@ interface BooksData {
     me: Me[];
   };
 }
+
+interface NewBook {
+  title: string;
+  rating: number;
+  series_name: string;
+  series_position: number;
+  author_name: string;
+  image_url: string;
+  progress: number;
+  started_at: string;
+}

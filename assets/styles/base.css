@@ -44,7 +44,12 @@ h6 {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  margin-bottom: 0.5rem;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+h1:first-of-type {
+  margin-top: 0;
 }
 
 h1 {
@@ -64,6 +69,10 @@ h1.hero {
   text-align: center;
 }
 
+p {
+  margin-bottom: 1rem;
+}
+
 main {
   padding: 1rem;
 
@@ -71,6 +80,24 @@ main {
     display: grid;
     grid-template-columns: 1fr 600px 1fr;
     grid-template-rows: 1fr;
+  }
+}
+
+code {
+  background-color: #ccc;
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.25rem;
+}
+
+span[data-soon] {
+  font-family: Arvo;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  &:after {
+    content: 'TM';
+    font-size: 0.5em;
+    vertical-align: super;
   }
 }
 
