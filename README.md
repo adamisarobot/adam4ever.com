@@ -14,23 +14,21 @@ A blogroject if you will.
 - Storage in Cloudflare D1
 - Refactor API routes in FE to use feed.
 
-[ ] Screenshot open graph automation
-
 ## To Dos
 
 [ ] Weather API?  
-[ ] Joke API?
+[ ] Joke API?  
 [ ] Animated gifs?  
 [ ] Sorting / Pagination / Navigation  
 [ ] Breadcrumbs & Site map  
-[ ] RSS
+[ ] RSS  
 [ ] Custom analytics - Visitor Counter  
 
 ## Maybes
 
 [ ] Authentication / Private pages  
-[ ] Lighthouse score optimization
-[ ] Fitbit connection
+[ ] Lighthouse score optimization  
+[ ] Fitbit connection  
 
 ## Done
 
