@@ -38,7 +38,7 @@ A blogroject if you will.
 
 [x] Feed structure / Storage  
 [x] Bluesky connection  
-[x] Hardcover connection
+[x] Hardcover connection  
   [x] Scheduled worker retrieving and storing data  
 [x] TMDB connection  
 [x] Spotify connection
