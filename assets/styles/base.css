@@ -48,7 +48,8 @@ h6 {
   margin-bottom: 0.5em;
 }
 
-h1:first-of-type {
+h1:first-of-type,
+h2:first-of-type {
   margin-top: 0;
 }
 
