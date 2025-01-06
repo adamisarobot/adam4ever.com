@@ -1,43 +1,47 @@
 .tool-tip {
-  --_p-inline: 1.5ch;
-  --_p-block: 0.75ch;
-  --_triangle-size: 7px;
-  --_bg: hsl(0 0% 20%);
-  --_shadow-alpha: 50%;
+  --p-inline: 1.5ch;
+  --p-block: 0.75ch;
+  --triangle-size: 7px;
+  --bg: hsl(0 0% 20%);
+  --shadow-alpha: 50%;
   --isRTL: -1;
-  --_bottom-tip: conic-gradient(
+
+  --bottom-tip: conic-gradient(
       from -30deg at bottom,
       #0000,
       #000 1deg 60deg,
       #0000 61deg
     )
     bottom / 100% 50% no-repeat;
-  --_top-tip: conic-gradient(
+  --top-tip: conic-gradient(
       from 150deg at top,
       #0000,
       #000 1deg 60deg,
       #0000 61deg
     )
     top / 100% 50% no-repeat;
-  --_right-tip: conic-gradient(
+  --right-tip: conic-gradient(
       from -120deg at right,
       #0000,
       #000 1deg 60deg,
       #0000 61deg
     )
     right / 50% 100% no-repeat;
-  --_left-tip: conic-gradient(
+  --left-tip: conic-gradient(
       from 60deg at left,
       #0000,
       #000 1deg 60deg,
       #0000 61deg
     )
     left / 50% 100% no-repeat;
+
   pointer-events: none;
   user-select: none;
+
   opacity: 0;
-  transform: translateX(var(--_x, 0)) translateY(var(--_y, 0));
+  transform: translateX(var(--x, 0)) translateY(var(--y, 0));
   transition: opacity 0.2s ease, transform 0.2s ease;
+
   position: absolute;
   z-index: 1;
   inline-size: max-content;
@@ -46,145 +50,130 @@
   font-size: 1rem;
   font-weight: normal;
   line-height: initial;
-  padding: var(--_p-block) var(--_p-inline);
+  padding: var(--p-block) var(--p-inline);
   margin: 0;
   border-radius: 5px;
-  background: var(--_bg);
+  background: var(--bg);
   color: CanvasText;
   will-change: filter;
-  filter: drop-shadow(0 3px 3px hsl(0 0% 0% / var(--_shadow-alpha)))
-    drop-shadow(0 12px 12px hsl(0 0% 0% / var(--_shadow-alpha)));
+  filter: drop-shadow(0 3px 3px hsl(0 0% 0% / var(--shadow-alpha)))
+    drop-shadow(0 12px 12px hsl(0 0% 0% / var(--shadow-alpha)));
+}
 
-  @media (prefers-color-scheme: light) {
-    --_bg: white;
-    --_shadow-alpha: 15%;
+/* Light theme adjustments */
+@media (prefers-color-scheme: light) {
+  .tool-tip {
+    --bg: white;
+    --shadow-alpha: 15%;
   }
+}
 
-  &:dir(rtl) {
-    --isRTL: 1;
-  }
+/* Adjust for RTL */
+:dir(rtl) .tool-tip {
+  --isRTL: 1;
+}
 
-  :has(> .tool-tip) {
-    position: relative;
-    background-color: red;
-  }
+/* Parent element with tooltip handling */
+a:has(.tool-tip):hover,
+a:has(.tool-tip):focus-visible,
+a:has(.tool-tip):active {
+  position: relative;
+}
 
-  :has(> .tool-tip):is(:hover, :focus-visible, :active) > .tool-tip {
-    opacity: 1;
-    transition-delay: 200ms;
-  }
+a:has(.tool-tip):hover .tool-tip,
+a:has(.tool-tip):focus-visible .tool-tip,
+a:has(.tool-tip):active .tool-tip {
+  opacity: 1;
+  transition-delay: 200ms;
+}
 
-  &::before {
-    content: '; Has tooltip: ';
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-  }
+/* Screen reader support */
+.tool-tip::before {
+  content: '; Has tooltip: ';
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
 
-  &::after {
-    content: '';
-    background: var(--_bg);
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    mask: var(--_tip);
-  }
+/* Tooltip shape (shadow effect) */
+.tool-tip::after {
+  content: '';
+  background: var(--bg);
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  mask: var(--tip);
+}
 
-  &[tip-position='top'],
-  &[tip-position='block-start'],
-  &:not([tip-position]),
-  &[tip-position='bottom'],
-  &[tip-position='block-end'] {
-    text-align: center;
-  }
+/* Tooltip positioning - Top (Default) */
+.tool-tip {
+  inset-inline-start: 50%;
+  inset-block-end: calc(100% + var(--p-block) + var(--triangle-size));
+  --x: calc(50% * var(--isRTL));
+}
 
-  &[tip-position='top'],
-  &[tip-position='block-start'],
-  &:not([tip-position]) {
-    inset-inline-start: 50%;
-    inset-block-end: calc(100% + var(--_p-block) + var(--_triangle-size));
-    --_x: calc(50% * var(--isRTL));
+a:has(.tool-tip):not(:hover):not(:active) .tool-tip {
+  --y: 3px;
+}
 
-    @media (prefers-reduced-motion: no-preference) {
-      :has(> .tool-tip):not(:hover, :active) .tool-tip {
-        --_y: 3px;
-      }
-    }
+.tool-tip::after {
+  --tip: var(--bottom-tip);
+  inset-block-end: calc(var(--triangle-size) * -1);
+  border-block-end: var(--triangle-size) solid transparent;
+}
 
-    &::after {
-      --_tip: var(--_bottom-tip);
-      inset-block-end: calc(var(--_triangle-size) * -1);
-      border-block-end: var(--_triangle-size) solid transparent;
-    }
-  }
+/* Tooltip - Right */
+.tool-tip[tip-position='right'] {
+  inset-inline-start: calc(100% + var(--p-inline) + var(--triangle-size));
+  inset-block-end: 50%;
+  --y: 50%;
+}
 
-  &[tip-position='right'],
-  &[tip-position='inline-end'] {
-    inset-inline-start: calc(100% + var(--_p-inline) + var(--_triangle-size));
-    inset-block-end: 50%;
-    --_y: 50%;
+a:has(.tool-tip[tip-position='right']):not(:hover):not(:active) .tool-tip {
+  --x: calc(var(--isRTL) * -3px * -1);
+}
 
-    @media (prefers-reduced-motion: no-preference) {
-      :has(> .tool-tip):not(:hover, :active) .tool-tip {
-        --_x: calc(var(--isRTL) * -3px * -1);
-      }
-    }
+.tool-tip[tip-position='right']::after {
+  --tip: var(--left-tip);
+  inset-inline-start: calc(var(--triangle-size) * -1);
+  border-inline-start: var(--triangle-size) solid transparent;
+}
 
-    &::after {
-      --_tip: var(--_left-tip);
-      inset-inline-start: calc(var(--_triangle-size) * -1);
-      border-inline-start: var(--_triangle-size) solid transparent;
-    }
+/* Tooltip - Bottom */
+.tool-tip[tip-position='bottom'] {
+  inset-inline-start: 50%;
+  inset-block-start: calc(100% + var(--p-block) + var(--triangle-size));
+  --x: calc(50% * var(--isRTL));
+}
 
-    &:dir(rtl)::after {
-      --_tip: var(--_right-tip);
-    }
-  }
+a:has(.tool-tip[tip-position='bottom']):not(:hover):not(:active) .tool-tip {
+  --y: -3px;
+}
 
-  &[tip-position='bottom'],
-  &[tip-position='block-end'] {
-    inset-inline-start: 50%;
-    inset-block-start: calc(100% + var(--_p-block) + var(--_triangle-size));
-    --_x: calc(50% * var(--isRTL));
+.tool-tip[tip-position='bottom']::after {
+  --tip: var(--top-tip);
+  inset-block-start: calc(var(--triangle-size) * -1);
+  border-block-start: var(--triangle-size) solid transparent;
+}
 
-    @media (prefers-reduced-motion: no-preference) {
-      :has(> .tool-tip):not(:hover, :active) .tool-tip {
-        --_y: -3px;
-      }
-    }
+/* Tooltip - Left */
+.tool-tip[tip-position='left'] {
+  inset-inline-end: calc(100% + var(--p-inline) + var(--triangle-size));
+  inset-block-end: 50%;
+  --y: 50%;
+}
 
-    &::after {
-      --_tip: var(--_top-tip);
-      inset-block-start: calc(var(--_triangle-size) * -1);
-      border-block-start: var(--_triangle-size) solid transparent;
-    }
-  }
+a:has(.tool-tip[tip-position='left']):not(:hover):not(:active) .tool-tip {
+  --x: calc(var(--isRTL) * 3px * -1);
+}
 
-  &[tip-position='left'],
-  &[tip-position='inline-start'] {
-    inset-inline-end: calc(100% + var(--_p-inline) + var(--_triangle-size));
-    inset-block-end: 50%;
-    --_y: 50%;
-
-    @media (prefers-reduced-motion: no-preference) {
-      :has(> .tool-tip):not(:hover, :active) .tool-tip {
-        --_x: calc(var(--isRTL) * 3px * -1);
-      }
-    }
-
-    &::after {
-      --_tip: var(--_right-tip);
-      inset-inline-end: calc(var(--_triangle-size) * -1);
-      border-inline-end: var(--_triangle-size) solid transparent;
-    }
-
-    &:dir(rtl)::after {
-      --_tip: var(--_left-tip);
-    }
-  }
+.tool-tip[tip-position='left']::after {
+  --tip: var(--right-tip);
+  inset-inline-end: calc(var(--triangle-size) * -1);
+  border-inline-end: var(--triangle-size) solid transparent;
 }
