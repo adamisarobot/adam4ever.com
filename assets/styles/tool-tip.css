@@ -2,8 +2,8 @@
   --p-inline: 1.5ch;
   --p-block: 0.75ch;
   --triangle-size: 7px;
-  --bg: hsl(0 0% 20%);
-  --shadow-alpha: 50%;
+  --bg: hsl(0, 0%, 100%);
+  --shadow-alpha: 25%;
   --isRTL: -1;
 
   --bottom-tip: conic-gradient(
@@ -46,9 +46,10 @@
   z-index: 1;
   inline-size: max-content;
   max-inline-size: 25ch;
-  text-align: start;
+  text-align: center;
+  font-family: Arvo, Courier, monospace;
   font-size: 1rem;
-  font-weight: normal;
+  font-weight: 400;
   line-height: initial;
   padding: var(--p-block) var(--p-inline);
   margin: 0;
