@@ -19,6 +19,7 @@ A blogroject if you will.
 
 ## To Dos
 
+- [ ] Images for the blog pages / affordable image storage
 - [ ] Weather API?
 - [ ] Joke API?
 - [ ] Animated gifs?
