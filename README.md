@@ -7,8 +7,6 @@ A blogroject if you will.
 
 ## In Progress
 
-- [ ] Screenshot open graph automation
-
 - [ ] Cloudflare Serverless functions to poll data
   - [x] Hardcover
   - [ ] TMDB
@@ -41,6 +39,7 @@ A blogroject if you will.
 
 ### Proof of Concepts
 
+- [x] Screenshot open graph automation
 - [x] Feed structure / Storage
 - [x] Bluesky connection
 - [x] Hardcover connection
