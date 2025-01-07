@@ -7,17 +7,16 @@ A blogroject if you will.
 
 ## In Progress
 
+- [ ] Images for the blog pages / image storage
 - [ ] Cloudflare Serverless functions to poll data
   - [x] Hardcover
   - [ ] TMDB
   - [ ] Blue Sly
   - [ ] Spotify
-- [ ] Storage in Cloudflare D1
 - [ ] Refactor API routes in FE to use feed.
 
 ## To Dos
 
-- [ ] Images for the blog pages / affordable image storage
 - [ ] Weather API?
 - [ ] Joke API?
 - [ ] Animated gifs?
@@ -39,6 +38,7 @@ A blogroject if you will.
 
 ### Proof of Concepts
 
+- [x] Storage in Cloudflare D1
 - [x] Screenshot open graph automation
 - [x] Feed structure / Storage
 - [x] Bluesky connection
