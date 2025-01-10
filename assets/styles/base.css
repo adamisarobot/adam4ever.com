@@ -22,6 +22,10 @@
 }
 
 body {
+  --bg-color: #fff;
+  --line-color-1: rgb(113, 113, 113, 0.25);
+  --line-color-2: rgb(188, 187, 187, 0.25);
+
   font-family: 'Open Sans', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -31,9 +35,20 @@ body {
 
   background-size: 1rem 1rem;
   background-position: 0% 0%;
-  background-image: radial-gradient(circle, #aaa 1px, rgba(0, 0, 0, 0) 1px);
+  /* Dot background
+     background-image: radial-gradient(circle, #aaa 1px, rgba(0, 0, 0, 0) 1px); */
   /* background-image: linear-gradient(to right, grey 1px, transparent 1px),
-    linear-gradient(to bottom, grey 1px, transparent 1px); */
+     linear-gradient(to bottom, grey 1px, transparent 1px); */
+  background-color: var(--bg-color);
+  background-image: linear-gradient(
+      var(--line-color-1) 1.5px,
+      transparent 1.5px
+    ),
+    linear-gradient(90deg, var(--line-color-1) 1.5px, transparent 1.5px),
+    linear-gradient(var(--line-color-2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-color-2) 1px, transparent 1px);
+  background-position: -1.5px -1.5px, -1.5px -1.5px, -1px -1px, -1px -1px;
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
 }
 
 h1,
@@ -71,18 +86,22 @@ h1.hero {
   text-align: center;
 }
 
-p {
-  margin-bottom: 1em;
-}
-
 main {
   padding: 1rem;
 
-  @media screen and (min-width: 37.5rem) {
+  @media screen and (min-width: 48rem) {
     display: grid;
-    grid-template-columns: 1fr 600px 1fr;
+    grid-template-columns: 1fr 768px 1fr;
     grid-template-rows: 1fr;
   }
+}
+
+.feed {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+p {
+  margin-bottom: 1em;
 }
 
 code {
@@ -101,10 +120,6 @@ span[data-soon] {
     font-size: 0.5em;
     vertical-align: super;
   }
-}
-
-.feed {
-  grid-area: 1 / 2 / 2 / 3;
 }
 
 .card {
