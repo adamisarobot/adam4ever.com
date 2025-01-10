@@ -127,6 +127,7 @@ useHead({
 
   p {
     margin-top: 1rem;
+    text-wrap: balance;
     text-wrap: pretty;
   }
 

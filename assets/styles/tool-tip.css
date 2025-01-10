@@ -1,3 +1,5 @@
+/* Original Source https://web.dev/articles/building/a-tooltip-component */
+/* Need to Brutalistize and throw in a component. */
 .tool-tip {
   --p-inline: 1.5ch;
   --p-block: 0.75ch;
@@ -79,6 +81,7 @@ a:has(.tool-tip):hover,
 a:has(.tool-tip):focus-visible,
 a:has(.tool-tip):active {
   position: relative;
+  cursor: pointer;
 }
 
 a:has(.tool-tip):hover .tool-tip,

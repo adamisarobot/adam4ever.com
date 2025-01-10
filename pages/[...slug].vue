@@ -20,10 +20,14 @@ useHead({
 <template>
   <main class="wide">
     <div class="feed">
-      <ContentDoc class="card" />
-      <div class="return">
-        <NuxtLink to="/">Back</NuxtLink>
-      </div>
+      <ContentDoc>
+        <template v-slot="{ doc }">
+          <ContentRenderer class="card" :value="doc" />
+          <div class="return">
+            <NuxtLink to="/">Back</NuxtLink>
+          </div>
+        </template>
+      </ContentDoc>
     </div>
   </main>
 </template>
