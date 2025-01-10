@@ -27,6 +27,7 @@ A blogroject if you will.
 - [ ] Code Display widget
 - [ ] D&D stat block widget
 - [ ] Text widgets / Emoji support
+- [ ] A word of the day? Or TIL this new Word
 
 ## Maybes
 
