@@ -19,6 +19,7 @@ A blogroject if you will.
 
 - [ ] Weather API?
 - [ ] Joke API?
+- [ ] Word API -> TIL Word
 - [ ] Animated gifs?
 - [ ] Sorting / Pagination / Navigation
 - [ ] Breadcrumbs & Site map
@@ -47,3 +48,4 @@ A blogroject if you will.
 - [x] Scheduled worker retrieving and storing data
 - [x] TMDB connection
 - [x] Spotify connection
+- [x] Basic Dark mode 
