@@ -9,6 +9,7 @@ defineProps<{
 
 <template>
   <!-- This whole thing needs a refactor, moved to component for now -->
+  <!-- Desperately in need of a refactor. Please... -->
   <li class="bsky-post" v-if="error">{{ error }}</li>
   <li class="bsky-post" v-if="!error && !post">No posts found.</li>
   <li class="bsky-post" v-if="!error && post">
@@ -29,6 +30,13 @@ li {
   background-color: #fff;
   box-shadow: 4px 4px rgba(0, 0, 0, 1);
   border: 2px solid var(--slate-600);
+
+  [data-theme='dark'] & {
+    background-color: var(--slate-900);
+    color: var(--slate-100);
+    border-color: var(--slate-100);
+    box-shadow: 4px 4px rgb(255, 255, 255);
+  }
 }
 
 .bsky-post {

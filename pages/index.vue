@@ -123,6 +123,13 @@ useHead({
     background-color: #fff;
     box-shadow: 4px 4px rgba(0, 0, 0, 1);
     border: 2px solid var(--slate-600);
+
+    [data-theme='dark'] & {
+      background-color: var(--slate-900);
+      color: var(--slate-100);
+      border-color: var(--slate-100);
+      box-shadow: 4px 4px rgb(255, 255, 255);
+    }
   }
 
   p {
