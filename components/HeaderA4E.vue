@@ -2,9 +2,11 @@
   <header>
     <div class="github">
       <a href="https://github.com/adamisarobot/adam4ever.com">
-        <NuxtImg src="/img/github.svg" />
+        <NuxtImg class="github-logo" src="/img/github.svg" />
       </a>
     </div>
+
+    <ThemeSwitch />
 
     <h1 class="hero">
       <span>Adam4ever</span>
@@ -19,6 +21,10 @@
   float: right;
   width: 2rem;
   height: 2rem;
-  margin: 0.5rem 0.5rem 0.5rem -0.5rem;
+}
+.github-logo {
+  [data-theme='dark'] & {
+    filter: invert(1);
+  }
 }
 </style>

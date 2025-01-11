@@ -33,7 +33,17 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxthub/core',
     '@nuxt/image',
+    '@nuxtjs/color-mode',
   ],
+
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    classPrefix: '',
+    classSuffix: '',
+    storage: 'localStorage',
+    dataValue: 'theme',
+  },
 
   routeRules: {
     '/': { prerender: true },
