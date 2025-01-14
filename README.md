@@ -19,7 +19,6 @@ A blogroject if you will.
 
 - [ ] Weather API?
 - [ ] Joke API?
-- [ ] Word API -> TIL Word
 - [ ] Animated gifs?
 - [ ] Sorting / Pagination / Navigation
 - [ ] Breadcrumbs & Site map
