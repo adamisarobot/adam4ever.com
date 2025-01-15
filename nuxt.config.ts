@@ -10,6 +10,16 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    classPrefix: '',
+    classSuffix: '',
+    storage: 'localStorage',
+    dataValue: 'theme',
+  },
+
   components: true,
 
   devtools: { enabled: true },
@@ -35,16 +45,8 @@ export default defineNuxtConfig({
     '@nuxthub/core',
     '@nuxt/image',
     '@nuxtjs/color-mode',
+    '@nuxt/eslint',
   ],
-
-  colorMode: {
-    preference: 'system',
-    fallback: 'light',
-    classPrefix: '',
-    classSuffix: '',
-    storage: 'localStorage',
-    dataValue: 'theme',
-  },
 
   routeRules: {
     '/': { prerender: true },

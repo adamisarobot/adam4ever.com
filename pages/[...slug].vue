@@ -1,19 +1,20 @@
 <script lang="ts" setup>
 const path = useRoute().fullPath;
+
 useHead({
-  title: 'Adam4ever - the blogroject',
+  title: "Adam4ever - the blogroject",
   meta: [
     {
-      name: 'description',
-      content: 'Adam4ever - the blogroject',
-    },
+      name: "description",
+      content: "Adam4ever - the blogroject"
+    }
   ],
   link: [
     {
-      rel: 'canonical',
-      href: `https://adam4ever.com${path}`,
-    },
-  ],
+      rel: "canonical",
+      href: `https://adam4ever.com${path}`
+    }
+  ]
 });
 </script>
 
@@ -21,7 +22,7 @@ useHead({
   <main class="wide">
     <div class="feed">
       <ContentDoc>
-        <template v-slot="{ doc }">
+        <template #default="{ doc }">
           <ContentRenderer class="card" :value="doc" />
           <div class="return">
             <NuxtLink to="/">
@@ -73,7 +74,7 @@ useHead({
       color: var(--slate-900);
     }
 
-    [data-theme='dark'] & {
+    [data-theme="dark"] & {
       color: var(--slate-100);
     }
   }
