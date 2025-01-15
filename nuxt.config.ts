@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+  components: true,
 
   devtools: { enabled: true },
   googleFonts: {
