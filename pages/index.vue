@@ -42,7 +42,7 @@ const excerpt = (overview: string) => {
 };
 
 useHead({
-  title: 'The Blogroject',
+  title: 'The Blogroject'
 });
 </script>
 
@@ -50,7 +50,7 @@ useHead({
   <main>
     <section id="feed" class="feed">
       <ul class="firehose">
-        <li v-for="blog in blogs">
+        <li v-for="blog in blogs" :key="blog._id">
           <h2>
             <NuxtLink :to="blog._path">{{ blog.title }}</NuxtLink>
           </h2>

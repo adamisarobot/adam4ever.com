@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
   <!-- This whole thing needs a refactor, moved to component for now -->
-  <!-- Desperately in need of a refactor. Please... -->
+  <!-- Desperately in need of a refactor. Please... help me... you are my only hope... -->
   <li class="bsky-post" v-if="error">{{ error }}</li>
   <li class="bsky-post" v-if="!error && !post">No posts found.</li>
   <li class="bsky-post" v-if="!error && post">
