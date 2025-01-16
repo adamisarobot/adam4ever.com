@@ -6,9 +6,9 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'canonical', href: `https://adam4ever.com/` },
-      ],
-    },
+        { rel: 'canonical', href: `https://adam4ever.com/` }
+      ]
+    }
   },
 
   colorMode: {
@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     classPrefix: '',
     classSuffix: '',
     storage: 'localStorage',
-    dataValue: 'theme',
+    dataValue: 'theme'
   },
 
   components: true,
@@ -27,16 +27,16 @@ export default defineNuxtConfig({
     families: {
       Arvo: {
         wght: [400, 700],
-        ital: [400, 700],
+        ital: [400, 700]
       },
       'Open+Sans': {
         wght: [400, 700],
-        ital: [400, 700],
+        ital: [400, 700]
       },
       'Space+Grotesk': {
-        wght: [500],
-      },
-    },
+        wght: [500]
+      }
+    }
   },
 
   modules: [
@@ -46,10 +46,15 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
+    '@nuxtjs/robots'
   ],
 
+  robots: {
+    blockAiBots: true
+  },
+
   routeRules: {
-    '/': { prerender: true },
+    '/': { prerender: true }
   },
 
   runtimeConfig: {
@@ -61,10 +66,10 @@ export default defineNuxtConfig({
       tmdbAPIKEY: process.env.TMDB_API_KEY,
       tmdbAccountID: process.env.TMDB_ACCOUNT_ID,
       spotifyClientID: process.env.SPOTIFY_CLIENT_ID,
-      spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-    },
+      spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET
+    }
   },
 
   ssr: true,
-  compatibilityDate: '2024-12-04',
+  compatibilityDate: '2024-12-04'
 });

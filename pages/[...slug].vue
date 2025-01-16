@@ -1,17 +1,18 @@
 <script lang="ts" setup>
+// No you're a ...slug
 const path = useRoute().fullPath;
 
 useHead({
-  title: "Adam4ever - the blogroject",
+  title: 'Adam4ever - the blogroject',
   meta: [
     {
-      name: "description",
-      content: "Adam4ever - the blogroject"
+      name: 'description',
+      content: 'Adam4ever - the blogroject'
     }
   ],
   link: [
     {
-      rel: "canonical",
+      rel: 'canonical',
       href: `https://adam4ever.com${path}`
     }
   ]
@@ -74,7 +75,7 @@ useHead({
       color: var(--slate-900);
     }
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       color: var(--slate-100);
     }
   }
