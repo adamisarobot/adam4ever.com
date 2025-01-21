@@ -46,7 +46,8 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
+    '@nuxtjs/cloudinary'
   ],
 
   robots: {

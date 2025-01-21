@@ -25,24 +25,10 @@ useHead({
       <ContentDoc>
         <template #default="{ doc }">
           <ContentRenderer class="card" :value="doc" />
+
           <div class="return">
-            <NuxtLink to="/">
-              <svg
-                class="arrow"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 166.35 166.35"
-                xml:space="preserve"
-              >
-                <g>
-                  <g fill="currentColor">
-                    <path
-                      d="M85.168,166.35L2.002,83.172L85.168,0v48.606l79.18,0.006v69.132l-79.18,0.012V166.35z     M10.439,83.172l68.756,68.768v-40.157l79.18-0.012V54.573l-79.18-0.012V14.404L10.439,83.172z"
-                    />
-                  </g>
-                </g>
-              </svg>
+            <NuxtLink class="slide-left" to="/">
+              <LeftArrow />
               <span>Back</span>
             </NuxtLink>
           </div>
@@ -77,6 +63,20 @@ useHead({
 
     [data-theme='dark'] & {
       color: var(--slate-100);
+    }
+  }
+}
+
+.slide-left {
+  touch-action: manipulation;
+  text-decoration: none;
+
+  svg {
+    transition: transform 0.3s ease-in-out;
+  }
+  &:hover {
+    svg {
+      transform: translateX(-0.5rem);
     }
   }
 }
