@@ -100,7 +100,8 @@ h2 {
 
 h1.hero {
   font-size: clamp(3.25rem, 8vw, 18rem);
-  font-family: Arvo;
+  font-family: 'Zodiac', serif;
+  font-weight: 700;
   text-align: center;
 }
 
