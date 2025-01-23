@@ -89,18 +89,18 @@ h2:first-of-type {
 
 h1 {
   font-size: clamp(3rem, 3vw, 4rem);
-  font-family: 'Space Grotesk', serif;
+  font-family: 'Bespoke Slab', serif;
 }
 
 h2 {
   font-size: clamp(2rem, 2vw, 3rem);
-  font-family: 'Space Grotesk', serif;
+  font-family: 'Bespoke Slab', serif;
   line-height: 1.2;
 }
 
 h1.hero {
   font-size: clamp(3.25rem, 8vw, 18rem);
-  font-family: 'Zodiac', serif;
+  font-family: 'Bespoke Slab', serif;
   font-weight: 700;
   text-align: center;
 }
