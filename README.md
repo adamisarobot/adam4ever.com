@@ -32,6 +32,7 @@ A blogroject if you will.
 ## Maybes
 
 - [ ] Authentication / Private pages
+- [ ]   Passport.js?
 - [ ] Lighthouse score optimization
 - [ ] Fitbit connection
 
