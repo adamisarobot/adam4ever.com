@@ -23,31 +23,26 @@ export default defineNuxtConfig({
   components: true,
 
   devtools: { enabled: true },
-  googleFonts: {
-    families: {
-      Arvo: {
-        wght: [400, 700],
-        ital: [400, 700]
-      },
-      'Open+Sans': {
-        wght: [400, 700],
-        ital: [400, 700]
-      },
-      'Space+Grotesk': {
-        wght: [500]
+
+  fonts: {
+    families: [
+      {
+        name: 'Bespoke Slab',
+        provider: 'fontshare',
+        weights: ['400', '700', '800']
       }
-    }
+    ]
   },
 
   modules: [
     '@nuxt/content',
-    '@nuxtjs/google-fonts',
     '@nuxthub/core',
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
     '@nuxtjs/robots',
-    '@nuxtjs/cloudinary'
+    '@nuxtjs/cloudinary',
+    '@nuxt/fonts'
   ],
 
   robots: {
