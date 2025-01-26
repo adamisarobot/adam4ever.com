@@ -37,10 +37,6 @@ const { data: movies, error: movieError } = await useAsyncData<MoviesData>(
   return data;
 });
 
-const excerpt = (overview: string) => {
-  return overview.split('.')[0] + '...';
-};
-
 useHead({
   title: 'The Blogroject'
 });
@@ -75,12 +71,11 @@ useHead({
               }}
             </p>
           </div>
-          <pre style="display: none"> {{ data.data }} </pre>
         </li>
         <li v-if="movies && !movieError" class="corner-icon tmdb">
           <h2>Liked movie</h2>
           <p>{{ movies.results[0].original_title }}</p>
-          <p style="display: none">{{ excerpt(movies.results[0].overview) }}</p>
+
           <p>
             <img
               :src="
@@ -91,7 +86,6 @@ useHead({
               :alt="movies.results[0].original_title"
             />
           </p>
-          <pre style="display: none">{{ movies }}</pre>
         </li>
         <li v-if="song && !loading" class="corner-icon spotify">
           <h2>Recently played</h2>
@@ -103,7 +97,6 @@ useHead({
               :width="song.album_art[1].width"
             />
           </p>
-          <pre style="display: none">{{ song }}</pre>
         </li>
       </ul>
     </section>

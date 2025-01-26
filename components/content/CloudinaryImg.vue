@@ -7,7 +7,7 @@ const { url } = useCldImageUrl({
     overlays: [
       {
         position: {
-          gravity: 'north',
+          gravity: 'south',
           y: 60
         },
         text: {

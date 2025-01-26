@@ -22,7 +22,12 @@ export default defineNuxtConfig({
 
   components: true,
 
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+    timeline: {
+      enabled: true
+    }
+  },
 
   fonts: {
     families: [
