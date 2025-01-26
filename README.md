@@ -17,6 +17,7 @@ A blogroject if you will.
 
 ## To Dos
 
+- [ ] Pixelfed Connection
 - [ ] Weather API?
 - [ ] Joke API?
 - [ ] Animated gifs?
