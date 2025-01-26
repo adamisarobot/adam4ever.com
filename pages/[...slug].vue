@@ -1,7 +1,9 @@
 <script lang="ts" setup>
-// No you're a ...slug
-const path = useRoute().fullPath;
+const route = useRoute();
 
+const { data: doc } = await useAsyncData(route.path, () => {
+  return queryCollection('blog').path(route.path).first();
+});
 useHead({
   title: 'Adam4ever - the blogroject',
   meta: [
@@ -13,7 +15,7 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: `https://adam4ever.com${path}`
+      href: `https://adam4ever.com${route.path}`
     }
   ]
 });
@@ -22,18 +24,14 @@ useHead({
 <template>
   <main class="wide">
     <div class="feed">
-      <ContentDoc>
-        <template #default="{ doc }">
-          <ContentRenderer class="card" :value="doc" />
+      <ContentRenderer v-if="doc" class="card" :value="doc" />
 
-          <div class="return">
-            <NuxtLink class="slide-left" to="/">
-              <LeftArrow />
-              <span>Back</span>
-            </NuxtLink>
-          </div>
-        </template>
-      </ContentDoc>
+      <div class="return">
+        <NuxtLink class="slide-left" to="/">
+          <LeftArrow />
+          <span>Back</span>
+        </NuxtLink>
+      </div>
     </div>
   </main>
 </template>
