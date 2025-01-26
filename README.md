@@ -17,6 +17,7 @@ A blogroject if you will.
 
 ## To Dos
 
+- [ ] Polaroid Picture Presentation
 - [ ] Pixelfed Connection
 - [ ] Weather API?
 - [ ] Joke API?
