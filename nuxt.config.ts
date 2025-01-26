@@ -22,6 +22,12 @@ export default defineNuxtConfig({
 
   components: true,
 
+  content: {
+    preview: {
+      api: 'https://api.nuxt.studio'
+    }
+  },
+
   devtools: {
     enabled: true,
     timeline: {
