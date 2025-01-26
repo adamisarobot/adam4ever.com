@@ -26,7 +26,11 @@ export default defineNuxtConfig({
 
   fonts: {
     families: [
-      { name: 'Zodiac', provider: 'fontshare', weights: ['700'], preload: true }
+      {
+        name: 'Bespoke Slab',
+        provider: 'fontshare',
+        weights: ['400', '700', '800']
+      }
     ]
   },
 
