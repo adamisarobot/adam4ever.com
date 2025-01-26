@@ -11,10 +11,11 @@
 const props = defineProps({
   date: {
     type: String,
-  },
+    default: ''
+  }
 });
 
-const message = props.date ? props.date : 'Soon-ish? Maybe? :D';
+const message = props.date !== '' ? props.date : 'Soon-ish? Maybe? :D';
 </script>
 
 <style scoped></style>

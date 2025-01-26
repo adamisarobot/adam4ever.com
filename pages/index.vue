@@ -4,7 +4,7 @@ const TMDB_IMAGE_PATH = 'https://image.tmdb.org/t/p/';
 const TMDB_IMAGE_WIDTH = 'w185';
 
 const { data: blogs } = await useAsyncData('blog', () =>
-  queryContent('/blog').find()
+  queryCollection('blog').order('date', 'DESC').all()
 );
 
 const { data: song } = await useAsyncData('lastSong', () =>
@@ -46,9 +46,9 @@ useHead({
   <main>
     <section id="feed" class="feed">
       <ul class="firehose">
-        <li v-for="blog in blogs" :key="blog._id">
+        <li v-for="blog in blogs" :key="blog.id">
           <h2>
-            <NuxtLink :to="blog._path">{{ blog.title }}</NuxtLink>
+            <NuxtLink :to="blog.path">{{ blog.title }}</NuxtLink>
           </h2>
           <p>{{ blog.description }}</p>
         </li>

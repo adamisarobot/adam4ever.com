@@ -20,6 +20,11 @@
   --tmdb: #00b3e5;
   --tmdb-2: #90cea1;
 
+  /* -- Links -- */
+  --link: #1b4872;
+  --link-hover: #437ec7;
+  --link-visited: #3585a8;
+
   /* -- fonts --*/
   --font-sans: 'Open Sans', sans-serif;
   --font-serif: 'Arvo', serif;
@@ -172,6 +177,10 @@ span[data-soon] {
   }
 }
 
+.font-display {
+  font-family: var(--font-display);
+}
+
 .card {
   padding: 1rem;
   background-color: #fff;
@@ -186,7 +195,7 @@ span[data-soon] {
 }
 
 a {
-  color: var(--slate-800);
+  color: var(--link);
   text-decoration: none;
 
   [data-theme='dark'] & {
@@ -195,7 +204,7 @@ a {
 
   &:hover,
   &:focus {
-    color: var(--slate-700);
+    color: var(--link-hover);
     text-decoration: underline;
 
     [data-theme='dark'] & {
@@ -204,7 +213,7 @@ a {
   }
 
   &:visited {
-    color: var(--slate-400);
+    color: var(--link-visited);
 
     [data-theme='dark'] & {
       color: var(--slate-200);
@@ -212,7 +221,7 @@ a {
   }
 
   &:visited:hover {
-    color: var(--slate-700);
+    color: var(--link-hover);
 
     [data-theme='dark'] & {
       color: var(--slate-200);
