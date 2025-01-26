@@ -7,7 +7,6 @@ A blogroject if you will.
 
 ## In Progress
 
-- [ ] Images for the blog pages / image storage
 - [ ] Cloudflare Serverless functions to poll data
   - [x] Hardcover
   - [x] TMDB
@@ -34,7 +33,7 @@ A blogroject if you will.
 ## Maybes
 
 - [ ] Authentication / Private pages
-- [ ]   Passport.js?
+  [ ] Passport.js?
 - [ ] Lighthouse score optimization
 - [ ] Fitbit connection
 
@@ -42,6 +41,7 @@ A blogroject if you will.
 
 ### Proof of Concepts
 
+- [x] Images for the blog pages / image storage
 - [x] Storage in Cloudflare D1
 - [x] Screenshot open graph automation
 - [x] Feed structure / Storage
