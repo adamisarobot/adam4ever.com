@@ -10,7 +10,7 @@ A blogroject if you will.
 - [ ] Images for the blog pages / image storage
 - [ ] Cloudflare Serverless functions to poll data
   - [x] Hardcover
-  - [ ] TMDB
+  - [x] TMDB
   - [ ] Blue Sly
   - [ ] Spotify
 - [ ] Refactor API routes in FE to use feed.
