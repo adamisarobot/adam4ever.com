@@ -1,41 +1,29 @@
 <script lang="ts" setup>
-const loading = ref(true);
 const TMDB_IMAGE_PATH = 'https://image.tmdb.org/t/p/';
 const TMDB_IMAGE_WIDTH = 'w185';
 
-const { data: blogs } = await useAsyncData('blog', () =>
+const { data, error } = await useAsyncData('blog', () =>
   queryCollection('blog').order('date', 'DESC').all()
 );
 
-const { data: song } = await useAsyncData('lastSong', () =>
+const { data: song, error: songError } = await useAsyncData('lastSong', () =>
   $fetch('/api/fetch-spotify-song')
-).then((data) => {
-  loading.value = false;
-  return data;
-});
+);
 
 const { data: posts, error: postError } = await useAsyncData<BskyPost>(
   'bsky',
   () => $fetch('/api/fetch-bsky')
-).then((data) => {
-  loading.value = false;
-  return data;
-});
+);
 
-const { data, error } = await useAsyncData<BooksData>('books', () =>
-  $fetch('/api/fetch-hardcover')
-).then((data) => {
-  loading.value = false;
-  return data;
-});
+const { data: books, error: bookError } = await useAsyncData<BooksData>(
+  'books',
+  () => $fetch('/api/fetch-hardcover')
+);
 
 const { data: movies, error: movieError } = await useAsyncData<MoviesData>(
   'movies',
   () => $fetch('/api/fetch-tmdb')
-).then((data) => {
-  loading.value = false;
-  return data;
-});
+);
 
 useHead({
   title: 'The Blogroject'
@@ -46,32 +34,37 @@ useHead({
   <main>
     <section id="feed" class="feed">
       <ul class="firehose">
-        <li v-for="blog in blogs" :key="blog.id">
-          <h2>
-            <NuxtLink :to="blog.path">{{ blog.title }}</NuxtLink>
-          </h2>
-          <p>{{ blog.description }}</p>
-        </li>
+        <template v-if="!error">
+          <li v-for="blog in data" :key="blog.id">
+            <span class="timestamp">
+              <NuxtTime :datetime="blog.date" />
+            </span>
+            <h2>
+              <NuxtLink :to="blog.path">{{ blog.title }}</NuxtLink>
+            </h2>
+            <p>{{ blog.description }}</p>
+          </li>
+        </template>
+
         <BlueSky :post="posts" :error="postError" />
 
-        <li v-if="loading">Loading...</li>
-        <li v-if="error && !loading">No books found.</li>
-        <li v-if="data && !error" class="corner-icon hardcover">
+        <li v-if="books && !bookError" class="corner-icon hardcover">
           <h2>Currently Reading</h2>
           <div class="box">
             <img
-              :src="data.data.me[0].user_books[0].book.cached_image.url"
-              :alt="data.data.me[0].user_books[0].book.title"
+              :src="books.data.me[0].user_books[0].book.cached_image.url"
+              :alt="books.data.me[0].user_books[0].book.title"
             />
-            <p>{{ data.data.me[0].user_books[0].book.title }}</p>
+            <p>{{ books.data.me[0].user_books[0].book.title }}</p>
             <p>
               {{
-                data.data.me[0].user_books[0].book.cached_contributors[0].author
-                  .name
+                books.data.me[0].user_books[0].book.cached_contributors[0]
+                  .author.name
               }}
             </p>
           </div>
         </li>
+
         <li v-if="movies && !movieError" class="corner-icon tmdb">
           <h2>Liked movie</h2>
           <p>{{ movies.results[0].original_title }}</p>
@@ -87,7 +80,8 @@ useHead({
             />
           </p>
         </li>
-        <li v-if="song && !loading" class="corner-icon spotify">
+
+        <li v-if="song && !songError" class="corner-icon spotify">
           <h2>Recently played</h2>
           <p>{{ song.name }} - {{ song.artists[0].name }}</p>
           <p>
@@ -112,6 +106,7 @@ useHead({
   padding: 0;
 
   li {
+    position: relative;
     padding: 1rem;
     background-color: #fff;
     box-shadow: 4px 4px rgba(0, 0, 0, 1);
@@ -160,5 +155,14 @@ useHead({
   .spotify {
     background-image: url('/img/spotify.svg');
   }
+}
+/* -- Timestamp -- */
+.timestamp {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--slate-500);
+  margin-bottom: 0.5rem;
 }
 </style>
