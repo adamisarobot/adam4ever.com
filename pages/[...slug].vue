@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 const route = useRoute();
 
-const { data: doc } = await useAsyncData(route.path, () => {
+const { data: blog, error } = await useLazyAsyncData(route.path, () => {
   return queryCollection('blog').path(route.path).first();
 });
+
 useHead({
   title: 'Adam4ever - the blogroject',
   meta: [
@@ -24,7 +25,7 @@ useHead({
 <template>
   <main class="wide">
     <div class="feed">
-      <ContentRenderer v-if="doc" class="card" :value="doc" />
+      <ContentRenderer v-if="blog && !error" class="card" :value="blog" />
 
       <div class="return">
         <NuxtLink class="slide-left" to="/">
