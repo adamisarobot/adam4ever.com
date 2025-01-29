@@ -53,7 +53,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxtjs/robots',
     '@nuxtjs/cloudinary',
-    '@nuxt/fonts'
+    '@nuxt/fonts',
+    'nuxt-time'
   ],
 
   robots: {
