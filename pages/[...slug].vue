@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const route = useRoute();
 
-const { data: blog, error } = await useLazyAsyncData(route.path, () => {
+const { data: blog, error } = await useAsyncData(route.path, () => {
   return queryCollection('blog').path(route.path).first();
 });
 
