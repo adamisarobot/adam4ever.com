@@ -6,7 +6,8 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: 'blog/**',
-        exclude: ['drafts/**']
+        exclude:
+          process.env.NODE_ENV === 'development' ? undefined : ['drafts/**']
       },
       schema: z.object({
         tags: z.array(z.string()),
