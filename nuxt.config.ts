@@ -22,6 +22,13 @@ export default defineNuxtConfig({
 
   components: true,
 
+  content: {
+    database: {
+      type: 'd1',
+      bindingName: 'DB'
+    }
+  },
+
   devtools: {
     enabled: true,
     timeline: {
@@ -40,7 +47,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/content',
     '@nuxthub/core',
     '@nuxt/image',
     '@nuxtjs/color-mode',
@@ -48,7 +54,8 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxtjs/cloudinary',
     '@nuxt/fonts',
-    'nuxt-time'
+    'nuxt-time',
+    '@nuxt/content'
   ],
 
   robots: {
