@@ -36,6 +36,10 @@ export default defineNuxtConfig({
     }
   },
 
+  experimental: {
+    inlineRouteRules: true
+  },
+
   fonts: {
     families: [
       {

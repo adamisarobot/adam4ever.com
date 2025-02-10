@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+defineRouteRules({ prerender: true });
+
 const route = useRoute();
 
 const { data: blog } = await useAsyncData(route.path, () => {
