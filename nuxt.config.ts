@@ -23,8 +23,9 @@ export default defineNuxtConfig({
   components: true,
 
   content: {
-    preview: {
-      api: 'https://api.nuxt.studio'
+    database: {
+      type: 'd1',
+      bindingName: 'DB'
     }
   },
 
@@ -46,7 +47,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/content',
     '@nuxthub/core',
     '@nuxt/image',
     '@nuxtjs/color-mode',
@@ -54,7 +54,8 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxtjs/cloudinary',
     '@nuxt/fonts',
-    'nuxt-time'
+    'nuxt-time',
+    '@nuxt/content'
   ],
 
   robots: {
