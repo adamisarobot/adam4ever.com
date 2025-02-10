@@ -3,9 +3,19 @@ defineRouteRules({ prerender: true });
 
 const route = useRoute();
 
-const { data: blog } = await useAsyncData('blog', () => {
-  return queryCollection('blog').path(route.path).first();
+const { data: blog, error } = await useAsyncData('blog', async () => {
+  try {
+    const result = await queryCollection('blog').path(route.path).first();
+    return result;
+  } catch (err) {
+    console.error('Error fetching blog data:', err);
+    throw err;
+  }
 });
+
+if (error.value) {
+  console.error('Error in useAsyncData:', error.value);
+}
 
 useHead({
   title: 'Adam4ever - the blogroject',
