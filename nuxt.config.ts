@@ -62,6 +62,12 @@ export default defineNuxtConfig({
     '@nuxt/content'
   ],
 
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false
+    }
+  },
+
   robots: {
     blockAiBots: true
   },
