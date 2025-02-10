@@ -3,7 +3,7 @@ defineRouteRules({ prerender: true });
 
 const route = useRoute();
 
-const { data: blog } = await useAsyncData(route.path, () => {
+const { data: blog } = await useAsyncData('blog', () => {
   return queryCollection('blog').path(route.path).first();
 });
 
