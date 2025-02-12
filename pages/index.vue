@@ -2,8 +2,8 @@
 const TMDB_IMAGE_PATH = 'https://image.tmdb.org/t/p/';
 const TMDB_IMAGE_WIDTH = 'w185';
 
-const { data, error } = await useAsyncData('blog', () =>
-  queryCollection('blog').order('date', 'DESC').all()
+const { data: blogs } = await useAsyncData('blog', () =>
+  queryContent('/blog').find()
 );
 
 const { data: song, error: songError } = await useAsyncData('lastSong', () =>
@@ -34,17 +34,15 @@ useHead({
   <main>
     <section id="feed" class="feed">
       <ul class="firehose">
-        <template v-if="!error">
-          <li v-for="blog in data" :key="blog.id">
-            <span class="timestamp">
-              <NuxtTime :datetime="blog.date" />
-            </span>
-            <h2>
-              <NuxtLink :to="blog.path">{{ blog.title }}</NuxtLink>
-            </h2>
-            <p>{{ blog.description }}</p>
-          </li>
-        </template>
+        <li v-for="blog in blogs" :key="blog.id">
+          <span class="timestamp">
+            <NuxtTime :datetime="blog.date" />
+          </span>
+          <h2>
+            <NuxtLink :to="blog._path">{{ blog.title }}</NuxtLink>
+          </h2>
+          <p>{{ blog.description }}</p>
+        </li>
 
         <BlueSky :post="posts" :error="postError" />
 
