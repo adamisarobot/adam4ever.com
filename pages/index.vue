@@ -3,7 +3,7 @@ const TMDB_IMAGE_PATH = 'https://image.tmdb.org/t/p/';
 const TMDB_IMAGE_WIDTH = 'w185';
 
 const { data: blogs } = await useAsyncData('blog', () =>
-  queryContent('/blog').find()
+  queryContent('/blog').sort({ date: -1 }).find()
 );
 
 const { data: song, error: songError } = await useAsyncData('lastSong', () =>
