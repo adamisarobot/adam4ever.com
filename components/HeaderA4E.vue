@@ -9,7 +9,7 @@
     <ThemeSwitch />
 
     <h1 class="hero">
-      <span>Adam4ever</span>
+      <NuxtLink to="/">Adam4ever</NuxtLink>
     </h1>
   </header>
 </template>
@@ -17,6 +17,22 @@
 <script setup lang="ts"></script>
 
 <style scoped>
+.hero {
+  a {
+    color: var(--slate-950);
+
+    &:hover,
+    &:focus {
+      color: var(--slate-950);
+      text-decoration: none;
+
+      [data-theme='dark'] & {
+        color: var(--slate-200);
+      }
+    }
+  }
+}
+
 .github {
   float: right;
   width: 2rem;
