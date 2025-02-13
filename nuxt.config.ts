@@ -22,13 +22,6 @@ export default defineNuxtConfig({
 
   components: true,
 
-  content: {
-    database: {
-      type: 'd1',
-      bindingName: 'DB'
-    }
-  },
-
   devtools: {
     enabled: true,
     timeline: {
