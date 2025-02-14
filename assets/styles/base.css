@@ -25,6 +25,9 @@
   --link-hover: #437ec7;
   --link-visited: #3585a8;
 
+  /*-- Highlight Color -- */
+  --highlight: #0057e9;
+
   /* -- fonts --*/
   --font-sans: 'Open Sans', sans-serif;
   --font-serif: 'Arvo', serif;
@@ -99,7 +102,11 @@ h2:first-of-type {
 }
 
 h1 {
-  font-size: clamp(3rem, 3vw, 4rem);
+  font-size: 2rem;
+
+  @media screen and (min-width: 25em) {
+    font-size: clamp(3rem, 3vw, 4rem);
+  }
 }
 
 h2 {
@@ -110,7 +117,7 @@ h2 {
 h1.hero {
   font-family: 'Bespoke Slab', serif;
   font-weight: 800;
-  font-size: clamp(3.25rem, 8vw, 18rem);
+  font-size: clamp(3rem, 8vw, 18rem);
   text-align: center;
 }
 
@@ -140,9 +147,9 @@ figcaption {
 main {
   padding: 1rem;
 
-  @media screen and (min-width: 48rem) {
+  @media screen and (min-width: 52em) {
     display: grid;
-    grid-template-columns: 1fr 768px 1fr;
+    grid-template-columns: 1fr 800px 1fr;
     grid-template-rows: 1fr;
   }
 }
@@ -161,7 +168,8 @@ code {
   padding: 0.1rem 0.25rem;
 
   [data-theme='dark'] & {
-    background-color: var(--slate-800);
+    color: var(--slate-950);
+    background-color: var(--slate-200);
   }
 }
 

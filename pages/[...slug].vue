@@ -19,7 +19,7 @@ useHead({
 </script>
 
 <template>
-  <main class="wide">
+  <main>
     <div class="feed">
       <ContentDoc>
         <template #default="{ doc: blog }">
@@ -38,10 +38,6 @@ useHead({
 </template>
 
 <style scoped>
-.wide {
-  grid-template-columns: 1fr 800px 1fr;
-}
-
 .return {
   margin-top: 1rem;
   text-align: right;
