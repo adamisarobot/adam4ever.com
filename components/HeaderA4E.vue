@@ -20,11 +20,17 @@
 .hero {
   a {
     color: var(--slate-950);
+    border: 0;
+
+    [data-theme='dark'] & {
+      color: var(--slate-50);
+    }
 
     &:hover,
     &:focus {
       color: var(--slate-950);
       text-decoration: none;
+      background-position-y: 0%;
 
       [data-theme='dark'] & {
         color: var(--slate-200);

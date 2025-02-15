@@ -20,14 +20,14 @@ useHead({
 
 <template>
   <main>
-    <div class="feed">
+    <div class="feed post">
       <ContentDoc>
         <template #default="{ doc: blog }">
           <ContentRenderer class="card" :value="blog" />
 
           <div class="return">
-            <NuxtLink class="slide-left" to="/">
-              <LeftArrow />
+            <NuxtLink to="/">
+              <BackArrowIcon class="arrow" />
               <span>Back</span>
             </NuxtLink>
           </div>
@@ -42,23 +42,15 @@ useHead({
   margin-top: 1rem;
   text-align: right;
 
+  a {
+    padding: 0 0.5rem;
+  }
+
   .arrow {
     display: inline-block;
     width: 1rem;
     height: 1rem;
     margin-right: 0.5rem;
-  }
-
-  a {
-    display: inline-block;
-
-    &:visited {
-      color: var(--slate-900);
-    }
-
-    [data-theme='dark'] & {
-      color: var(--slate-100);
-    }
   }
 }
 
