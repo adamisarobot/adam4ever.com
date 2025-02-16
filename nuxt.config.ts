@@ -29,16 +29,6 @@ export default defineNuxtConfig({
     }
   },
 
-  fonts: {
-    families: [
-      {
-        name: 'Bespoke Slab',
-        provider: 'fontshare',
-        weights: ['400', '700', '800']
-      }
-    ]
-  },
-
   modules: [
     '@nuxthub/core',
     '@nuxt/image',

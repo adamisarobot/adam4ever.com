@@ -1,39 +1,3 @@
-@import 'reset.css';
-@import 'tool-tip.css';
-
-:root {
-  /* -- greys -- */
-  --slate-50: #f9fafb;
-  --slate-100: #f3f4f6;
-  --slate-200: #e5e7eb;
-  --slate-300: #d1d5db;
-  --slate-400: #9ca3af;
-  --slate-500: #6b7280;
-  --slate-600: #4b5563;
-  --slate-700: #374151;
-  --slate-800: #1f2937;
-  --slate-900: #111827;
-  --slate-950: #030712;
-  --bsky: #1185fe;
-  --hardcover: #6366f1;
-  --hardcover-dark: #312e81;
-  --tmdb: #00b3e5;
-  --tmdb-2: #90cea1;
-
-  /* -- Links -- */
-  --link: var(--highlight);
-  --link-hover: #437ec7;
-  --link-visited: #3585a8;
-
-  /*-- Highlight Color -- */
-  --highlight: #0057e9;
-
-  /* -- fonts --*/
-  --font-sans: 'Open Sans', sans-serif;
-  --font-serif: 'Arvo', serif;
-  --font-display: 'Bespoke Slab', serif;
-}
-
 body {
   --bg-color: #fff;
   --line-color-1: rgb(113, 113, 113, 0.25);
@@ -43,16 +7,10 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.2rem;
+  font-size: var(--base-font-size);
   padding: 0.5em;
-  color: var(--slate-950);
 
-  background-size: 1rem 1rem;
-  background-position: 0% 0%;
-  /* Dot background
-     background-image: radial-gradient(circle, #aaa 1px, rgba(0, 0, 0, 0) 1px); */
-  /* background-image: linear-gradient(to right, grey 1px, transparent 1px),
-     linear-gradient(to bottom, grey 1px, transparent 1px); */
+  color: var(--slate-950);
   background-color: var(--bg-color);
   background-image: linear-gradient(
       var(--line-color-1) 1.5px,
@@ -72,74 +30,13 @@ body {
     20px 20px,
     20px 20px;
 
+  /* -- Dark Mode uses a point graph look -- */
   [data-theme='dark'] & {
     --bg-color: var(--slate-950);
-    --line-color-1: rgb(113, 113, 113, 0.5);
-    --line-color-2: rgb(188, 187, 187, 0.5);
     color: var(--slate-50);
-    background-image: radial-gradient(circle, #aaa 1px, rgba(0, 0, 0, 0) 1px);
+    background-image: radial-gradient(circle, #aaaaaa 1px, transparent 1px);
     background-size: 1rem 1rem;
   }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-optical-sizing: auto;
-  font-family: 'Arvo', serif;
-  font-weight: 700;
-  font-style: normal;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-}
-
-h1:first-of-type,
-h2:first-of-type {
-  margin-top: 0;
-}
-
-h1 {
-  font-size: 2rem;
-
-  @media screen and (min-width: 25em) {
-    font-size: clamp(3rem, 3vw, 4rem);
-  }
-}
-
-h2 {
-  font-size: clamp(2rem, 2vw, 3rem);
-  line-height: 1.2;
-}
-
-.post {
-  h2 {
-    a {
-      color: var(--slate-950);
-      border: 0;
-      background: none;
-
-      &:hover,
-      &:focus {
-        color: var(--slate-950);
-      }
-    }
-
-    [data-theme='dark'] & {
-      a {
-        color: var(--slate-50);
-      }
-    }
-  }
-}
-
-h1.hero {
-  font-family: 'Bespoke Slab', serif;
-  font-weight: 800;
-  font-size: clamp(3rem, 8vw, 18rem);
-  text-align: center;
 }
 
 figure {
@@ -175,14 +72,6 @@ main {
   }
 }
 
-.feed {
-  grid-area: 1 / 2 / 2 / 3;
-}
-
-p {
-  margin-bottom: 1em;
-}
-
 code {
   background-color: #cccccc;
   border-radius: 0.25rem;
@@ -191,58 +80,6 @@ code {
   [data-theme='dark'] & {
     color: var(--slate-950);
     background-color: var(--slate-200);
-  }
-}
-
-span[data-soon] {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  text-transform: uppercase;
-
-  &:after {
-    content: 'TM';
-    font-size: 0.5em;
-    vertical-align: super;
-  }
-}
-
-.font-display {
-  font-family: var(--font-display);
-}
-
-.card {
-  padding: 1rem;
-  background-color: #fff;
-  box-shadow: 4px 4px rgba(0, 0, 0, 1);
-  border: 2px solid var(--slate-600);
-
-  [data-theme='dark'] & {
-    background-color: var(--slate-950);
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--slate-400);
-  }
-}
-
-.blog-image {
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-.blog-image--left {
-  @media screen and (min-width: 769px) {
-    float: left;
-    margin-right: 1rem;
-    padding: 0;
-    width: 40%;
-  }
-}
-
-.blog-image--right {
-  @media screen and (min-width: 769px) {
-    float: right;
-    margin-left: 1rem;
-    padding: 0;
-    width: 40%;
   }
 }
 

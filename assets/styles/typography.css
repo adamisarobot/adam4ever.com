@@ -1,0 +1,37 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Arvo', serif;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+h1:first-of-type,
+h2:first-of-type {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2rem;
+
+  @media screen and (min-width: 25em) {
+    font-size: clamp(3rem, 3vw, 4rem);
+  }
+}
+
+h2 {
+  font-size: clamp(2rem, 2vw, 3rem);
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}

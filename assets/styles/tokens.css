@@ -1,0 +1,51 @@
+:root {
+  /* 1. Colours -- */
+  /* -- a. Greys -- */
+  --slate-50: #f9fafb;
+  --slate-100: #f3f4f6;
+  --slate-200: #e5e7eb;
+  --slate-300: #d1d5db;
+  --slate-400: #9ca3af;
+  --slate-500: #6b7280;
+  --slate-600: #4b5563;
+  --slate-700: #374151;
+  --slate-800: #1f2937;
+  --slate-900: #111827;
+  --slate-950: #030712;
+
+  /* -- b. Blues -- */
+  --blue-50: #e6f0ff;
+  --blue-100: #cce0ff;
+  --blue-200: #99c2ff;
+  --blue-300: #66a3ff;
+  --blue-400: #3385ff;
+  --blue-500: #0057e9;
+  --blue-600: #004bbd;
+  --blue-700: #003f91;
+  --blue-800: #003366;
+  --blue-900: #00263a;
+  --blue-950: #001b26;
+
+  /* -- b. Socials -- */
+  --bsky: #1185fe;
+  --hardcover: #6366f1;
+  --hardcover-dark: #312e81;
+  --tmdb: #00b3e5;
+  --tmdb-2: #90cea1;
+
+  /* -- c. Highlight Colours -- */
+  --highlight: var(--blue-500);
+
+  /* -- d. Links -- */
+  --link: var(--highlight);
+
+  /* 2. Typography --*/
+  --base-font-size: 1.2rem;
+  --font-sans: 'Open Sans', sans-serif;
+  --font-serif: 'Arvo', serif;
+  --font-display: 'Bespoke Slab', serif;
+
+  /* 3. Layout --*/
+  --max-width: 800px;
+  --spacing: 1rem;
+}
