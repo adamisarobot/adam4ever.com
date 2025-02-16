@@ -18,4 +18,16 @@ const props = defineProps({
 const message = props.date !== '' ? props.date : 'Soon-ish? Maybe? :D';
 </script>
 
-<style scoped></style>
+<style>
+span[data-soon] {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  text-transform: uppercase;
+
+  &:after {
+    content: 'TM';
+    font-size: 0.5em;
+    vertical-align: super;
+  }
+}
+</style>

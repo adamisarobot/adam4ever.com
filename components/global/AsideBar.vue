@@ -11,7 +11,9 @@
   </aside>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// This design was lifted from https://martijnhols.nl/blog/the-european-accessibility-act-for-websites-and-apps
+</script>
 
 <style scoped>
 .aside {

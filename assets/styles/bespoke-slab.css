@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Bespoke Slab';
+  src:
+    url('../fonts/BespokeSlab-Extrabold.woff2') format('woff2'),
+    url('../fonts/BespokeSlab-Extrabold.woff') format('woff'),
+    url('../fonts/BespokeSlab-Extrabold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import '~/assets/styles/base.css';
+import '~/assets/styles/style.css';
 const route = useRoute();
 const useTitle = ref('Adam4ever');
 
 useHead({
   htmlAttrs: {
-    lang: 'en',
+    lang: 'en'
   },
   titleTemplate: (title) => {
     useTitle.value = route ? `${title} - Adam4ever` : 'Adam4ever';
@@ -14,16 +14,16 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Blogging about building a blog on the blog being built.',
-    },
+      content: 'Blogging about building a blog on the blog being built.'
+    }
   ],
   link: [
     {
       rel: 'icon',
       type: 'image/png',
-      href: '/favicon.png',
-    },
-  ],
+      href: '/favicon.png'
+    }
+  ]
 });
 
 useSeoMeta({
@@ -38,7 +38,7 @@ useSeoMeta({
   twitterDescription: 'Blogging about building a blog on the blog being built.',
   twitterImage:
     'https://browser-worker.a4e.workers.dev?url=https://adam4ever.com',
-  twitterCard: 'summary_large_image',
+  twitterCard: 'summary_large_image'
 });
 </script>
 

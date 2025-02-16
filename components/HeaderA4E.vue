@@ -18,6 +18,11 @@
 
 <style scoped>
 .hero {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 10vw, 18rem);
+  text-align: center;
+
   a {
     color: var(--slate-950);
     border: 0;
