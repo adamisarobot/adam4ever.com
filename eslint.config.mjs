@@ -1,5 +1,6 @@
 // @ts-check
 import withNuxt from './.nuxt/eslint.config.mjs';
+import css from '@eslint/css';
 
 export default withNuxt(
   // Your custom configs here
@@ -8,6 +9,14 @@ export default withNuxt(
     rules: {
       // Several HTML elements don't have a closing tag.
       'vue/html-self-closing': 'off'
+    }
+  },
+  {
+    files: ['src/**/*.{css, vue}'],
+    plugins: { css },
+    language: 'css/css',
+    rules: {
+      'css/no-duplicate-imports': 'error'
     }
   }
 );
