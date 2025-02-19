@@ -6,7 +6,19 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'canonical', href: `https://adam4ever.com/` }
+        { rel: 'canonical', href: `https://adam4ever.com/` },
+        {
+          rel: 'me',
+          href: 'https://bsky.app/profile/adam4ever.com'
+        },
+        { rel: 'me', href: 'https://mastodon.social/@adam4ever' },
+        {
+          rel: 'me',
+          href: 'https://pxlfd.ca/i/web/profile/787314293798586242'
+        },
+        { rel: 'me', href: 'https://github.com/adamisarobot' },
+        { rel: 'me', href: 'https://hardcover.app/@adam4ever' },
+        { rel: 'me', href: 'https://www.themoviedb.org/u/adam4ever' }
       ]
     }
   },
