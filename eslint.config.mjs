@@ -5,14 +5,14 @@ import css from '@eslint/css';
 export default withNuxt(
   // Your custom configs here
   {
-    files: ['src/**/*.{js,vue,ts}'],
+    files: ['**/*.{js,vue,ts}'],
     rules: {
       // Several HTML elements don't have a closing tag.
       'vue/html-self-closing': 'off'
     }
   },
   {
-    files: ['src/**/*.{css, vue}'],
+    files: ['**/*.{css, vue}'],
     plugins: { css },
     language: 'css/css',
     rules: {

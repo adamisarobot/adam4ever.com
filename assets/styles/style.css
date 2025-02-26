@@ -9,6 +9,7 @@
 @import 'layout.css';
 @import 'typography.css';
 @import 'posts.css';
+@import 'utilities.css';
 
 /* -- Widgets -- */
 @import 'tool-tip.css';
