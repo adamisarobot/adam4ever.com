@@ -6,12 +6,12 @@
         <img class="u-photo" src="/img/adam4ever.svg" alt="Adam4ever" />
       </a>
       <div class="visually-hidden">
-        <span class="p-name sr-only">Adam Ritchie</span><br />
+        <span class="p-name">Adam Ritchie</span><br />
         <span class="p-locality">Halifax</span>,
-        <span class="p-region sr-only">Nova Scotia</span>
-        <div class="p-country-name sr-only">Canada</div>
-        <time class="dt-bday sr-only">1975-03-01</time>
-        <div class="p-category sr-only">Software Developer</div>
+        <span class="p-region">Nova Scotia</span>
+        <div class="p-country-name">Canada</div>
+        <time class="dt-bday">1975-03-01</time>
+        <div class="p-category">Software Developer</div>
       </div>
     </div>
   </footer>
