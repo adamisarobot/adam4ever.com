@@ -47,6 +47,7 @@ useSeoMeta({
     <NuxtLoadingIndicator />
     <HeaderA4E />
     <NuxtPage />
+    <FooterA4E />
   </div>
 </template>
 
