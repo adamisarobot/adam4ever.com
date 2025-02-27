@@ -21,9 +21,9 @@ useHead({
 <template>
   <main>
     <div class="feed">
-      <ContentDoc tag="article" class="h-entry">
+      <ContentDoc>
         <template #default="{ doc: blog }">
-          <div class="card h-card">
+          <article class="card h-entry h-card">
             <h1 class="p-name">{{ blog.title }}</h1>
             <p class="p-summary">{{ blog.description }}</p>
 
@@ -46,7 +46,7 @@ useHead({
                 {{ blog.date }}
               </time>
             </div>
-          </div>
+          </article>
         </template>
       </ContentDoc>
     </div>
