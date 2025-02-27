@@ -20,16 +20,32 @@ useHead({
 
 <template>
   <main>
-    <div class="feed post">
-      <ContentDoc>
+    <div class="feed">
+      <ContentDoc tag="article" class="h-entry">
         <template #default="{ doc: blog }">
-          <ContentRenderer class="card" :value="blog" />
+          <div class="card h-card">
+            <h1 class="p-name">{{ blog.title }}</h1>
+            <p class="p-summary">{{ blog.description }}</p>
 
-          <div class="return">
-            <NuxtLink to="/">
-              <BackArrowIcon class="arrow" />
-              <span>Back</span>
-            </NuxtLink>
+            <ContentRenderer class="e-content" :value="blog" />
+
+            <div class="return">
+              <NuxtLink to="/">
+                <BackArrowIcon class="arrow" />
+                <span>Back</span>
+              </NuxtLink>
+            </div>
+
+            <div class="made-by">
+              <link
+                class="u-syndication"
+                :href="`https://adam4ever.com${route.path}`"
+              />
+              <span class="p-author">Adam Ritchie</span>
+              <time class="dt-published" :datetime="blog.date">
+                {{ blog.date }}
+              </time>
+            </div>
           </div>
         </template>
       </ContentDoc>
@@ -54,17 +70,7 @@ useHead({
   }
 }
 
-.slide-left {
-  touch-action: manipulation;
-  text-decoration: none;
-
-  svg {
-    transition: transform 0.3s ease-in-out;
-  }
-  &:hover {
-    svg {
-      transform: translateX(-0.5rem);
-    }
-  }
+.made-by {
+  display: none;
 }
 </style>
