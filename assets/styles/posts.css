@@ -1,4 +1,9 @@
-.h-card {
+.post {
+  h1 {
+    margin-bottom: 0.25em;
+    border-bottom: 0.1em solid var(--highlight);
+  }
+
   h2 {
     a {
       color: var(--slate-950);
@@ -16,6 +21,12 @@
         color: var(--slate-50);
       }
     }
+  }
+
+  .post-summary {
+    font-family: 'Arvo', serif;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
   }
 }
 
