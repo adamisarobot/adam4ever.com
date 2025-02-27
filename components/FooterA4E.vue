@@ -25,14 +25,14 @@ footer {
 }
 
 a {
+  display: inline-block;
   background: none;
   border: 0;
+  vertical-align: middle;
 }
 
 img {
-  display: inline-block;
   width: 1rem;
   height: 1rem;
-  vertical-align: middle;
 }
 </style>
