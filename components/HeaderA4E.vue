@@ -1,8 +1,15 @@
 <template>
   <header>
     <div class="github">
-      <a href="https://github.com/adamisarobot/adam4ever.com">
-        <NuxtImg class="github-logo" src="/img/github.svg" />
+      <a
+        title="Github - adamisarobot"
+        href="https://github.com/adamisarobot/adam4ever.com"
+      >
+        <NuxtImg
+          class="github-logo"
+          src="/img/github.svg"
+          alt="Github - adamisarobot"
+        />
       </a>
     </div>
 
@@ -49,6 +56,7 @@
   width: 2rem;
   height: 2rem;
 }
+
 .github-logo {
   [data-theme='dark'] & {
     filter: invert(1);

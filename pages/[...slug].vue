@@ -23,9 +23,9 @@ useHead({
     <div class="feed">
       <ContentDoc>
         <template #default="{ doc: blog }">
-          <article class="card h-entry h-card">
+          <article class="post card h-entry">
             <h1 class="p-name">{{ blog.title }}</h1>
-            <p class="p-summary">{{ blog.description }}</p>
+            <p class="post-summary p-summary">{{ blog.description }}</p>
 
             <ContentRenderer class="e-content" :value="blog" />
 
@@ -37,11 +37,21 @@ useHead({
             </div>
 
             <div class="made-by">
-              <link
-                class="u-syndication"
+              <a
                 :href="`https://adam4ever.com${route.path}`"
-              />
-              <span class="p-author">Adam Ritchie</span>
+                class="u-url u-syndication p-author h-card"
+                >Adam Ritchie</a
+              >
+              <div>
+                <span
+                  v-for="cat in blog.tags"
+                  :key="cat"
+                  class="category p-category"
+                >
+                  {{ cat }}
+                </span>
+              </div>
+
               <time class="dt-published" :datetime="blog.date">
                 {{ blog.date }}
               </time>
@@ -71,6 +81,19 @@ useHead({
 }
 
 .made-by {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-size: 0.75rem;
+
+  .category {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0 0.25rem;
+    border: 3px solid var(--highlight);
+  }
+
+  /* I styled this just in case but generally I want it only for h-entry validation */
   display: none;
 }
 </style>
