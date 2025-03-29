@@ -2,10 +2,10 @@ import type { ParsedContent } from '@nuxt/content';
 
 type Meta = {
   category: string;
-  source: string;
+  source: 'blog' | 'bluesky' | 'tmdb' | 'hardcover';
 };
 
-interface Movie {
+export interface Movie {
   id: number;
   uuid: string;
   adult: number;
@@ -24,10 +24,10 @@ interface Movie {
   vote_average: number;
   vote_count: number;
   created_at: string;
-  meta: Meta;
+  meta: Meta & { source: 'tmdb' };
 }
 
-interface BskyPost {
+export interface BskyPost {
   id: number;
   uuid: string;
   bluesky_id: string;
@@ -45,10 +45,10 @@ interface BskyPost {
   replies: number;
   quote: number;
   created_at: string;
-  meta: Meta;
+  meta: Meta & { source: 'bluesky' };
 }
 
-interface Book {
+export interface Book {
   id: number;
   uuid: string;
   title: string;
@@ -60,17 +60,19 @@ interface Book {
   started_at: string;
   rating: number;
   created_at: string;
-  meta?: Meta;
+  meta: Meta & { source: 'hardcover' };
   data?: string;
 }
 
-interface BlogPost extends ParsedContent {
+export interface BlogPost extends ParsedContent {
   created_at: string;
-  meta: Meta;
+  meta: Meta & { source: 'blog' };
 }
 
-interface Firehose {
+export interface Firehose {
   data: (Movie | BskyPost | Book)[];
 }
 
-export type FirehoseData = (Movie | BskyPost | Book | BlogPost)[];
+export type Post = Movie | BskyPost | Book | BlogPost;
+
+export type FirehoseData = Post[];
