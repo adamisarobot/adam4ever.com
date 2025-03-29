@@ -25,6 +25,11 @@ const { data: movies, error: movieError } = await useAsyncData<MoviesData>(
   () => $fetch('/api/fetch-tmdb')
 );
 
+const { data: firehose, error: firehoseError } = await useAsyncData(
+  'firehose',
+  () => $fetch('/api/fetch-firehose')
+);
+
 useHead({
   title: 'The Blogroject'
 });
@@ -34,17 +39,22 @@ useHead({
   <main>
     <section id="feed" class="feed">
       <ul class="firehose">
-        <li v-for="blog in blogs" :key="blog.id">
-          <span class="timestamp">
-            <NuxtTime :datetime="blog.date" />
-          </span>
-          <h2>
-            <NuxtLink :to="blog._path">{{ blog.title }}</NuxtLink>
-          </h2>
-          <p>{{ blog.description }}</p>
-        </li>
+        <template v-for="post in firehose" :key="post.id">
+          <li v-if="post.meta.source !== 'bluesky'">
+            <span class="timestamp">
+              <NuxtTime :datetime="post.created_at" />
+            </span>
+            <h2>
+              <!-- <NuxtLink :to="blog._path">{{ blog.title }}</NuxtLink> -->
+              {{ post.title }}
+            </h2>
+            <p></p>
+          </li>
 
-        <BlueSky :post="posts" :error="postError" />
+          <Bluesky v-else :post="post" />
+        </template>
+
+        <!-- <BlueSky :post="posts" :error="postError" />
 
         <li v-if="books && !bookError" class="corner-icon hardcover">
           <h2>Currently Reading</h2>
@@ -89,7 +99,7 @@ useHead({
               :width="song.album_art[1].width"
             />
           </p>
-        </li>
+        </li> -->
       </ul>
     </section>
   </main>

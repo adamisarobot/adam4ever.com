@@ -16,13 +16,13 @@ export default defineEventHandler(async (event): Promise<BskyPost> => {
     const agent = new BskyAgent({ service: 'https://bsky.social' });
     await agent.login({
       identifier: blueskyHandle,
-      password: blueskyPassword,
+      password: blueskyPassword
     });
 
     const response = await agent.getAuthorFeed({
       actor: blueskyHandle,
       filter: 'posts_and_author_threads',
-      limit: 30,
+      limit: 30
     });
 
     const formattedReturn = formatter.bskyPost(response.data.feed);

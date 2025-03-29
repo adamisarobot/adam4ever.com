@@ -3,16 +3,14 @@ import type { NuxtError } from '#app';
 
 defineProps<{
   post: BskyPost | null;
-  error: NuxtError<unknown> | null;
 }>();
 </script>
 
 <template>
   <!-- This whole thing needs a refactor, moved to component for now -->
   <!-- Desperately in need of a refactor. Please... help me... you are my only hope... -->
-  <li class="bsky-post" v-if="error">{{ error }}</li>
-  <li class="bsky-post" v-if="!error && !post">No posts found.</li>
-  <li class="bsky-post" v-if="!error && post">
+  <li class="bsky-post" v-if="!post">No posts found.</li>
+  <li class="bsky-post" v-if="post">
     <img
       style="display: none"
       :src="post.author.avatar"
@@ -22,6 +20,7 @@ defineProps<{
     <p>{{ post.record?.text }}</p>
     <p>{{ formatDatetime.UTCtoLocal(post.record?.createdAt) }}</p>
   </li>
+  <pre>{{ post }}</pre>
 </template>
 
 <style scoped>

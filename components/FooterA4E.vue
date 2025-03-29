@@ -3,7 +3,13 @@
     <div class="h-card">
       Made by <span class="p-nickname"> Adam4ever </span>
       <a href="https://adam4ever.com" class="u-url">
-        <img class="u-photo" src="/img/adam4ever.svg" alt="Adam4ever" />
+        <NuxtImg
+          class="u-photo"
+          src="/img/adam4ever.svg"
+          width="16"
+          height="16"
+          alt="Adam4ever"
+        />
       </a>
       <div class="visually-hidden">
         <span class="p-name">Adam Ritchie</span><br />
