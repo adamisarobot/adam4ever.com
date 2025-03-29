@@ -1,33 +1,9 @@
 <script lang="ts" setup>
-const TMDB_IMAGE_PATH = 'https://image.tmdb.org/t/p/';
-const TMDB_IMAGE_WIDTH = 'w185';
+import type { FirehoseData } from '~/types/firehose';
 
-const { data: blogs } = await useAsyncData('blog', () =>
-  queryContent('/blog').sort({ date: -1 }).find()
-);
-
-const { data: song, error: songError } = await useAsyncData('lastSong', () =>
-  $fetch('/api/fetch-spotify-song')
-);
-
-const { data: posts, error: postError } = await useAsyncData<BskyPost>(
-  'bsky',
-  () => $fetch('/api/fetch-bsky')
-);
-
-const { data: books, error: bookError } = await useAsyncData<BooksData>(
-  'books',
-  () => $fetch('/api/fetch-hardcover')
-);
-
-const { data: movies, error: movieError } = await useAsyncData<MoviesData>(
-  'movies',
-  () => $fetch('/api/fetch-tmdb')
-);
-
-const { data: firehose, error: firehoseError } = await useAsyncData(
+const { data: firehose, error } = await useAsyncData<FirehoseData>(
   'firehose',
-  () => $fetch('/api/fetch-firehose')
+  () => $fetch<FirehoseData>('/api/fetch-firehose')
 );
 
 useHead({
@@ -38,24 +14,30 @@ useHead({
 <template>
   <main>
     <section id="feed" class="feed">
-      <ul class="firehose">
+      <ul v-if="!error && firehose" class="firehose">
         <template v-for="post in firehose" :key="post.id">
-          <li v-if="post.meta.source !== 'bluesky'">
+          <li
+            v-if="post.meta.source !== 'bluesky' && post.meta.source !== 'tmdb'"
+          >
             <span class="timestamp">
               <NuxtTime :datetime="post.created_at" />
             </span>
             <h2>
-              <!-- <NuxtLink :to="blog._path">{{ blog.title }}</NuxtLink> -->
-              {{ post.title }}
+              <NuxtLink v-if="post.meta.source === 'blog'" :to="post._path">
+                {{ post.title }}
+              </NuxtLink>
+              <span v-else>{{ post.title }}</span>
             </h2>
             <p></p>
           </li>
 
-          <Bluesky v-else :post="post" />
+          <BlueSky v-else-if="post.meta.source === 'bluesky'" :post="post" />
+
+          <TMDBWatchlist v-else-if="post.meta.source === 'tmdb'" :post="post" />
+          <pre v-else>{{ post }}</pre>
         </template>
 
-        <!-- <BlueSky :post="posts" :error="postError" />
-
+        <!--
         <li v-if="books && !bookError" class="corner-icon hardcover">
           <h2>Currently Reading</h2>
           <div class="box">
@@ -64,7 +46,7 @@ useHead({
               :alt="books.data.me[0].user_books[0].book.title"
             />
             <p>{{ books.data.me[0].user_books[0].book.title }}</p>
-            <p>
+        aaaaaaaa    <p>
               {{
                 books.data.me[0].user_books[0].book.cached_contributors[0]
                   .author.name
@@ -105,72 +87,4 @@ useHead({
   </main>
 </template>
 
-<style scoped>
-.firehose {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  list-style-type: none;
-  padding: 0;
-
-  li {
-    position: relative;
-    padding: 1rem;
-    background-color: #fff;
-    box-shadow: 4px 4px rgba(0, 0, 0, 1);
-    border: 2px solid var(--slate-600);
-
-    [data-theme='dark'] & {
-      background-color: var(--slate-900);
-      color: var(--slate-100);
-      border-color: var(--slate-100);
-      box-shadow: 4px 4px rgb(255, 255, 255);
-    }
-  }
-
-  p {
-    margin-top: 1rem;
-    text-wrap: balance;
-    text-wrap: pretty;
-  }
-
-  .box {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .corner-icon {
-    background-position: bottom right;
-    background-size: 2rem;
-    background-origin: content-box;
-
-    background-repeat: no-repeat;
-  }
-
-  .bsky {
-    background-image: url('/img/bsky.svg');
-  }
-
-  .hardcover {
-    background-image: url('/img/hardcover.svg');
-  }
-
-  .tmdb {
-    background-size: 100px;
-    background-image: url('/img/tmdb.svg');
-  }
-
-  .spotify {
-    background-image: url('/img/spotify.svg');
-  }
-}
-/* -- Timestamp -- */
-.timestamp {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  font-size: 0.8rem;
-  color: var(--slate-500);
-  margin-bottom: 0.5rem;
-}
-</style>
+<style scoped></style>

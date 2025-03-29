@@ -1,40 +1,18 @@
 interface Book {
+  id: number;
+  uuid: string;
   title: string;
-  cached_contributors: {
-    author: {
-      name: string;
-      cachedImage: {
-        url: string;
-      };
-    };
-  }[];
-  cached_image: {
-    url: string;
-  };
-}
-
-interface UserBook {
-  book: Book;
-  date_added: string;
-}
-
-interface Me {
-  user_books: UserBook[];
-}
-
-interface BooksData {
-  data: {
-    me: Me[];
-  };
-}
-
-interface NewBook {
-  title: string;
-  rating: number;
+  author_name: string;
   series_name: string;
   series_position: number;
-  author_name: string;
   image_url: string;
-  progress: number;
+  progress: number | null;
   started_at: string;
+  rating: number;
+  created_at: string;
+  meta?: {
+    category: string;
+    source: string;
+  };
+  data?: string;
 }
