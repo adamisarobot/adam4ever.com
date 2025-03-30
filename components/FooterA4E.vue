@@ -1,6 +1,7 @@
 <template>
   <footer>
-    <div class="h-card">
+    <!-- h-card information/validation only -->
+    <div class="h-card" style="display: none">
       Made by <span class="p-nickname"> Adam4ever </span>
       <a href="https://adam4ever.com" class="u-url">
         <NuxtImg

@@ -8,7 +8,8 @@ export default withNuxt(
     files: ['**/*.{js,vue,ts}'],
     rules: {
       // Several HTML elements don't have a closing tag.
-      'vue/html-self-closing': 'off'
+      'vue/html-self-closing': 'off',
+      'vue/multi-word-component-names': 'off'
     }
   },
   {

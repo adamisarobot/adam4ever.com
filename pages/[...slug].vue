@@ -40,8 +40,9 @@ useHead({
               <a
                 :href="`https://adam4ever.com${route.path}`"
                 class="u-url u-syndication p-author h-card"
-                >Adam Ritchie</a
               >
+                Adam Ritchie
+              </a>
               <div>
                 <span
                   v-for="cat in blog.tags"

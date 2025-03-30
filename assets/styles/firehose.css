@@ -63,6 +63,10 @@
     background-image: url('/img/spotify.svg');
   }
 
+  .nuxt {
+    background-image: url('/img/nuxt.svg');
+  }
+
   .poster-image {
     width: 10rem;
     max-width: 100%;

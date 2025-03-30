@@ -40,15 +40,7 @@ function isBook(post: Post): post is Book {
     <section id="feed" class="feed">
       <ul v-if="!error && firehose" class="firehose">
         <template v-for="post in firehose" :key="post.id">
-          <!-- Blog Post -->
-          <li v-if="isBlogPost(post)">
-            <span class="timestamp">
-              <NuxtTime :datetime="post.created_at" />
-            </span>
-            <h2>
-              <NuxtLink :to="post._path">{{ post.title }}</NuxtLink>
-            </h2>
-          </li>
+          <BlogCard v-if="isBlogPost(post)" :post="post" />
 
           <BlueSky v-else-if="isBskyPost(post)" :post="post" />
 
