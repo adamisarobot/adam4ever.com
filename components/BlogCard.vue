@@ -7,8 +7,8 @@ defineProps<{
 }>();
 </script>
 
-<template v-if="post._draft === false">
-  <li class="corner-icon nuxt">
+<template>
+  <li v-if="post._draft === false" class="corner-icon nuxt">
     <span class="timestamp">
       <NuxtTime :datetime="post.created_at" />
     </span>

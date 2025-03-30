@@ -4,7 +4,8 @@
     border-bottom: 0.1em solid var(--highlight);
   }
 
-  h2 {
+  h2,
+  h3 {
     a {
       color: var(--slate-950);
       border: 0;
