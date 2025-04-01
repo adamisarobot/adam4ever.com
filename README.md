@@ -10,9 +10,9 @@ A blogroject if you will.
 - [ ] Cloudflare Serverless functions to poll data
   - [x] Hardcover
   - [x] TMDB
-  - [ ] Blue Sly
+  - [x] Blue Sly
   - [ ] Spotify
-- [ ] Refactor API routes in FE to use feed.
+
 
 ## To Dos
 
@@ -41,6 +41,7 @@ A blogroject if you will.
 
 ### Proof of Concepts
 
+- [x] Refactor API routes in FE to use feed.
 - [x] Images for the blog pages / image storage
 - [x] Storage in Cloudflare D1
 - [x] Screenshot open graph automation
