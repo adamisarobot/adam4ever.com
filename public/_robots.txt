@@ -11,3 +11,5 @@ Disallow: /search
 Disallow: /products?*
 # Block print pages
 Disallow: /*/print
+# Block CF /cdn-cgi/
+Disallow: /cdn-cgi/
