@@ -7,12 +7,9 @@ A blogroject if you will.
 
 ## In Progress
 
-- [ ] Cloudflare Serverless functions to poll data
-  - [x] Hardcover
-  - [x] TMDB
-  - [x] Blue Sly
-  - [ ] Spotify
-
+- [ ] Lighthouse score optimization
+  - [ ] Look into storing images from 3rd parties
+- [ ] A word of the day? Or TIL this new Word
 
 ## To Dos
 
@@ -28,13 +25,13 @@ A blogroject if you will.
 - [ ] Code Display widget
 - [ ] D&D stat block widget
 - [ ] Text widgets / Emoji support
-- [ ] A word of the day? Or TIL this new Word
+- [ ] Cloudflare Serverless functions to poll data
+  - [ ] Spotify
 
 ## Maybes
 
-- [ ] Authentication / Private pages  
+- [ ] Authentication / Private pages
   - [ ] Passport.js?
-- [ ] Lighthouse score optimization
 - [ ] Fitbit connection
 
 ## Done
@@ -51,4 +48,8 @@ A blogroject if you will.
 - [x] Scheduled worker retrieving and storing data
 - [x] TMDB connection
 - [x] Spotify connection
-- [x] Basic Dark mode 
+- [x] Basic Dark mode
+- [x] Cloudflare Serverless functions to poll data
+  - [x] Hardcover
+  - [x] TMDB
+  - [x] Blue Sly
