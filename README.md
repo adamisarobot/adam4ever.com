@@ -10,6 +10,8 @@ A blogroject if you will.
 - [ ] Lighthouse score optimization
   - [ ] Look into storing images from 3rd parties
 - [ ] A word of the day? Or TIL this new Word
+- [ ] RSS
+- [ ] ToC, Archives, and Filters
 
 ## To Dos
 
@@ -20,7 +22,6 @@ A blogroject if you will.
 - [ ] Animated gifs?
 - [ ] Sorting / Pagination / Navigation
 - [ ] Breadcrumbs & Site map
-- [ ] RSS
 - [ ] Custom analytics - Visitor Counter
 - [ ] Code Display widget
 - [ ] D&D stat block widget
