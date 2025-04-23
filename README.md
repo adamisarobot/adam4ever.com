@@ -7,16 +7,21 @@ A blogroject if you will.
 
 ## In Progress
 
-- [ ] Add a simple navigation with filters for content
-- [ ] Idea: use the title as breadcrumb for navigating
 - [ ] Lighthouse score optimization
   - [ ] Look into storing images from 3rd parties
-- [ ] A word of the day? Or TIL this new Word
-- [ ] RSS
+- [ ] Open Graph image using Cloudinary to display text and timestamp
+- [ ] A word of the day || TIL this new Word widget
+
+
+## Next Up
+
+- [ ] Add a simple navigation with filters for content
 - [ ] ToC, Archives, and Filters
+- [ ] RSS, sitemap
 
 ## To Dos
 
+- [ ] Use the title as breadcrumb for navigating
 - [ ] Polaroid Picture Presentation
 - [ ] Pixelfed Connection
 - [ ] Weather API?
