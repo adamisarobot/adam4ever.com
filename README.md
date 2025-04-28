@@ -7,17 +7,16 @@ A blogroject if you will.
 
 ## In Progress
 
+- [ ] Add a simple navigation with filters for content
+- [ ] ToC, Archives, and Filters
+- [ ] RSS, sitemap
+
+## Next Up
+
 - [ ] Lighthouse score optimization
   - [ ] Look into storing images from 3rd parties
 - [ ] Open Graph image using Cloudinary to display text and timestamp
 - [ ] A word of the day || TIL this new Word widget
-
-
-## Next Up
-
-- [ ] Add a simple navigation with filters for content
-- [ ] ToC, Archives, and Filters
-- [ ] RSS, sitemap
 
 ## To Dos
 
