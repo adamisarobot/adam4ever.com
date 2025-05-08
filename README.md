@@ -13,6 +13,7 @@ A blogroject if you will.
 
 ## Next Up
 
+- [ ] links of the week regular post
 - [ ] Lighthouse score optimization
   - [ ] Look into storing images from 3rd parties
 - [ ] Open Graph image using Cloudinary to display text and timestamp
