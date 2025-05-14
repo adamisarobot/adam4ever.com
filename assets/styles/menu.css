@@ -1,0 +1,31 @@
+:root {
+  --menu-size: 50px;
+  --menu-half-size: calc(var(--menu-size) / 2);
+  --menu-button-color: #eeeeee;
+}
+
+.menu-open {
+  display: none;
+}
+
+.menu-item,
+.menu-open-button {
+  position: absolute;
+  margin-left: calc(--menu-half-size);
+  width: var(--menu-size);
+  height: var(--menu-size);
+  color: var(--slate-950);
+  border-radius: 100%;
+  text-align: center;
+  line-height: var(--size);
+  transform: translate3d(0, 0, 0);
+  transition: transform ease-out 200ms;
+}
+
+.menu-open-button {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 400ms;
+  transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+  cursor: pointer;
+  z-index: 2;
+}
