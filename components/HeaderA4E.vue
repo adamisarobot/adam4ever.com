@@ -1,19 +1,15 @@
 <template>
   <header>
-    <nav>
-      <GithubButton />
-
-      <ThemeSwitch />
-
-      <MenuButton />
-    </nav>
+    <BounceMenu />
     <h1 class="hero">
       <NuxtLink to="/">Adam4ever</NuxtLink>
     </h1>
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import BounceMenu from './BounceMenu.vue';
+</script>
 
 <style>
 .hero {

@@ -49,20 +49,19 @@ const toggleTheme = () => {
 };
 </script>
 
-<style scoped>
+<style>
 @import 'https://unpkg.com/open-props/easings.min.css';
 
 .theme-toggle {
-  --size: 2rem;
+  --size: 40px;
   --icon-fill: hsl(210 10% 30%);
   --icon-fill-hover: hsl(210 10% 15%);
 
-  background: none;
-  border: none;
   padding: 0;
 
-  inline-size: var(--size);
-  block-size: var(--size);
+  width: var(--size);
+  height: var(--size);
+
   aspect-ratio: 1;
   border-radius: 50%;
 
@@ -84,7 +83,7 @@ const toggleTheme = () => {
   }
 
   @media (hover: none) {
-    --size: 48px;
+    --size: 32px;
   }
 }
 
@@ -138,7 +137,8 @@ const toggleTheme = () => {
     }
 
     & > .sun-beams {
-      transition: transform 0.5s var(--ease-elastic-4),
+      transition:
+        transform 0.5s var(--ease-elastic-4),
         opacity 0.5s var(--ease-3);
     }
 

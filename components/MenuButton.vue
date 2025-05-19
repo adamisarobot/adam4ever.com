@@ -1,14 +1,12 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
-    <input id="menu-open" type="checkbox" class="menu-open" />
-    <label for="menu-open" class="menu-open-button">
-      <span class="lines line-1"></span>
-      <span class="lines line-2"></span>
-      <span class="lines line-3"></span>
-    </label>
-  </div>
+  <input id="menu-open" type="checkbox" class="menu-open" />
+  <label for="menu-open" class="menu-open-button">
+    <span class="lines line-1"></span>
+    <span class="lines line-2"></span>
+    <span class="lines line-3"></span>
+  </label>
 </template>
 
 <style>
