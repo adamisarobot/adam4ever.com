@@ -53,37 +53,31 @@ const toggleTheme = () => {
 @import 'https://unpkg.com/open-props/easings.min.css';
 
 .theme-toggle {
-  --size: 40px;
   --icon-fill: hsl(210 10% 30%);
   --icon-fill-hover: hsl(210 10% 15%);
 
   padding: 0;
 
-  width: var(--size);
-  height: var(--size);
+  width: var(--menu-size);
+  height: var(--menu-size);
 
   aspect-ratio: 1;
   border-radius: 50%;
+  border: 0;
 
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 
-  outline-offset: 5px;
-
   & > svg {
     inline-size: 100%;
-    block-size: 100%;
+    block-size: 70%;
     stroke-linecap: round;
   }
 
   [data-theme='dark'] & {
     --icon-fill: hsl(210 10% 70%);
     --icon-fill-hover: hsl(210 15% 90%);
-  }
-
-  @media (hover: none) {
-    --size: 32px;
   }
 }
 

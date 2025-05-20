@@ -15,5 +15,10 @@
   [data-theme='dark'] & {
     filter: invert(1);
   }
+
+  &:hover,
+  &:focus {
+    outline-color: #24292f;
+  }
 }
 </style>
