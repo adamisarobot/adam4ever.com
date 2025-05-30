@@ -30,6 +30,9 @@ A blogroject if you will.
 - [ ] Sorting / Pagination / Navigation
 - [ ] Breadcrumbs & Site map
 - [ ] Custom analytics - Visitor Counter
+  - [ ] Page views / Broken down by time?
+  - [ ] "Kudos" button? Like?
+  - [ ] Country / Browser / OS
 - [ ] Code Display widget
 - [ ] D&D stat block widget
 - [ ] Text widgets / Emoji support
