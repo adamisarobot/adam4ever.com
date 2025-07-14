@@ -13,9 +13,7 @@ A blogroject if you will.
 
 ## Next Up
 
-- [ ] links of the week regular post
-- [ ] Lighthouse score optimization
-  - [ ] Look into storing images from 3rd parties
+- [ ] Links of the week regular post
 - [ ] Open Graph image using Cloudinary to display text and timestamp
 - [ ] A word of the day || TIL this new Word widget
 
@@ -35,6 +33,8 @@ A blogroject if you will.
 - [ ] Text widgets / Emoji support
 - [ ] Cloudflare Serverless functions to poll data
   - [ ] Spotify
+- [ ] Lighthouse score optimization
+  - [ ] Look into storing images from 3rd parties
 
 ## Maybes
 
