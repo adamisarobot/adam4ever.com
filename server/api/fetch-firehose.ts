@@ -1,4 +1,6 @@
 import type { Firehose, FirehoseData, BlogPost } from '~/types/firehose';
+
+// Needs work.
 export default defineEventHandler(async () => {
   const FIREHOSE_API_URL = 'https://firehose.a4e.workers.dev/api/v1/';
 
