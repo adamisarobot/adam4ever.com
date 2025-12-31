@@ -53,6 +53,14 @@ export default defineNuxtConfig({
     '@nuxt/content'
   ],
 
+  nitro: {
+    preset: 'cloudflare_module',
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true
+    }
+  },
+
   robots: {
     blockAiBots: true
   },
@@ -75,5 +83,5 @@ export default defineNuxtConfig({
   },
 
   ssr: true,
-  compatibilityDate: '2024-12-04'
+  compatibilityDate: '2025-12-31'
 });
