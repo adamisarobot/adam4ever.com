@@ -46,7 +46,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
-    '@nuxtjs/robots',
+    // '@nuxtjs/robots',
     '@nuxtjs/cloudinary',
     '@nuxt/fonts',
     'nuxt-time',
@@ -61,13 +61,13 @@ export default defineNuxtConfig({
     }
   },
 
-  robots: {
-    blockAiBots: true
-  },
+  // robots: {
+  //   blockAiBots: true
+  // },
 
-  routeRules: {
-    '/': { prerender: true }
-  },
+  // routeRules: {
+  //   '/': { prerender: true }
+  // },
 
   runtimeConfig: {
     public: {},
