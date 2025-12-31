@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "adam4ever-com",
   "main": "./.output/server/index.mjs",
-  "compatibility_date": "2025-12-31",
+  "compatibility_date": "2024-01-01",
   "assets": {
     "directory": "./.output/public/",
     "binding": "ASSETS"
@@ -15,5 +15,8 @@
       "binding": "DB",
       "database_id": "b13d21a3-7ffa-4b2f-b32b-1de8f9472f05"
     }
+  ],
+  "compatibility_flags": [
+    "nodejs_compat"
   ]
 }
