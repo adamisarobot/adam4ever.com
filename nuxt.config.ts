@@ -46,7 +46,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
-    '@nuxtjs/robots',
+    // '@nuxtjs/robots',
     '@nuxtjs/cloudinary',
     '@nuxt/fonts',
     'nuxt-time',
@@ -56,18 +56,18 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'cloudflare_module',
     cloudflare: {
-      deployConfig: true,
+      deployConfig: false,
       nodeCompat: true
     }
   },
 
-  robots: {
-    blockAiBots: true
-  },
+  // robots: {
+  //   blockAiBots: true
+  // },
 
-  routeRules: {
-    '/': { prerender: true }
-  },
+  // routeRules: {
+  //   '/': { prerender: true }
+  // },
 
   runtimeConfig: {
     public: {},
@@ -83,5 +83,5 @@ export default defineNuxtConfig({
   },
 
   ssr: true,
-  compatibilityDate: '2025-12-31'
+  compatibilityDate: '2024-01-01'
 });
