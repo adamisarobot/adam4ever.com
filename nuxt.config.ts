@@ -42,7 +42,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxthub/core',
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
@@ -58,6 +57,23 @@ export default defineNuxtConfig({
     cloudflare: {
       deployConfig: false,
       nodeCompat: true
+    },
+    rollupConfig: {
+      plugins: [
+        {
+          name: 'static-content-manifest-stub',
+          resolveId(id: string) {
+            if (id === '__STATIC_CONTENT_MANIFEST') {
+              return '\0__STATIC_CONTENT_MANIFEST';
+            }
+          },
+          load(id: string) {
+            if (id === '\0__STATIC_CONTENT_MANIFEST') {
+              return 'export default {};';
+            }
+          }
+        }
+      ]
     }
   },
 
@@ -71,15 +87,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {},
-    private: {
-      blueskyHandle: process.env.BLUESKY_HANDLE,
-      blueskyPassword: process.env.BLUESKY_PASSWORD,
-      hardCoverAPIKey: process.env.HARDCOVER_API_KEY,
-      tmdbAPIKEY: process.env.TMDB_API_KEY,
-      tmdbAccountID: process.env.TMDB_ACCOUNT_ID,
-      spotifyClientID: process.env.SPOTIFY_CLIENT_ID,
-      spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET
-    }
+    private: {}
   },
 
   ssr: true,
