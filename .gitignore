@@ -91,6 +91,8 @@ out
 .nuxt
 dist
 .output
+.wrangler 
+.zed
 
 # Gatsby files
 .cache/

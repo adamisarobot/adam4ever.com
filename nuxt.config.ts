@@ -51,32 +51,6 @@ export default defineNuxtConfig({
     'nuxt-time',
     '@nuxt/content'
   ],
-
-  nitro: {
-    preset: 'cloudflare_module',
-    cloudflare: {
-      deployConfig: false,
-      nodeCompat: true
-    },
-    rollupConfig: {
-      plugins: [
-        {
-          name: 'static-content-manifest-stub',
-          resolveId(id: string) {
-            if (id === '__STATIC_CONTENT_MANIFEST') {
-              return '\0__STATIC_CONTENT_MANIFEST';
-            }
-          },
-          load(id: string) {
-            if (id === '\0__STATIC_CONTENT_MANIFEST') {
-              return 'export default {};';
-            }
-          }
-        }
-      ]
-    }
-  },
-
   // robots: {
   //   blockAiBots: true
   // },
@@ -91,5 +65,5 @@ export default defineNuxtConfig({
   },
 
   ssr: true,
-  compatibilityDate: '2024-01-01'
+  compatibilityDate: '2026-01-12'
 });
