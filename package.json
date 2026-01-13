@@ -2,13 +2,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build && node scripts/fix-static-manifest.js",
+    "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "npm run build && wrangler dev",
     "lint": "eslint",
+    "postinstall": "nuxt prepare",
     "deploy": "npm run build && wrangler deploy",
-    "dev:worker": "npm run build && wrangler dev"
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@atproto/api": "^0.13.20",
@@ -28,6 +29,8 @@
     "@eslint/css": "^0.3.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.2",
+    "nitro-cloudflare-dev": "^0.2.2",
+    "nitropack": "^2.13.0",
     "prettier": "^3.4.2",
     "wrangler": "^4.54.0"
   }

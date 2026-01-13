@@ -49,7 +49,8 @@ export default defineNuxtConfig({
     '@nuxtjs/cloudinary',
     '@nuxt/fonts',
     'nuxt-time',
-    '@nuxt/content'
+    '@nuxt/content',
+    "nitro-cloudflare-dev"
   ],
   // robots: {
   //   blockAiBots: true
@@ -58,6 +59,14 @@ export default defineNuxtConfig({
   // routeRules: {
   //   '/': { prerender: true }
   // },
+  nitro: {
+    preset: "cloudflare_module",
+
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true
+    }
+  },
 
   runtimeConfig: {
     public: {},
@@ -65,5 +74,5 @@ export default defineNuxtConfig({
   },
 
   ssr: true,
-  compatibilityDate: '2026-01-12'
+  compatibilityDate: '2025-09-27'
 });
