@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "cf-nuxt-baseline",
+	"name": "adam4ever-com",
 	"main": "./.output/server/index.mjs",
 	"compatibility_date": "2025-09-27",
 	"assets": {
