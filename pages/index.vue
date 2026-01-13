@@ -38,7 +38,7 @@ function isBook(post: Post): post is Book {
 <template>
   <main>
     <section id="feed" class="feed">
-      <ul v-if="!error && firehose" class="firehose">
+      <ul v-if="!error && firehose && !firehose.error" class="firehose">
         <template v-for="post in firehose" :key="post.id">
           <BlogCard v-if="isBlogPost(post)" :post="post" />
 
@@ -64,6 +64,10 @@ function isBook(post: Post): post is Book {
           </p>
         </li> -->
       </ul>
+      <div v-else-if="firehose?.error" class="error-state">
+        <p>{{ firehose.error }}</p>
+        <pre v-if="firehose.message">{{ firehose.message }}</pre>
+      </div>
     </section>
   </main>
 </template>
