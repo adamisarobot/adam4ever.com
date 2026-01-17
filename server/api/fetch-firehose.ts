@@ -6,7 +6,20 @@ export default defineEventHandler(async (event) => {
 
   try {
     // Fetch data from the external firehose API
-    const firehoseData: Firehose = await $fetch(FIREHOSE_API_URL);
+    const response = await fetch(FIREHOSE_API_URL, {
+      headers: {
+        'Accept': 'application/json',
+        'User-Agent': 'Adam4ever-Nuxt-SSR'
+      }
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`Firehose fetch failed: ${response.status} ${response.statusText}`, errorText);
+      throw new Error(`External API returned ${response.status}: ${errorText.substring(0, 100)}`);
+    }
+
+    const firehoseData: Firehose = await response.json();
 
     // Fetch data from Nuxt Content internally
     const blogs = await serverQueryContent(event).find();
