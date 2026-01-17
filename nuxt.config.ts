@@ -50,7 +50,7 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     'nuxt-time',
     '@nuxt/content',
-    "nitro-cloudflare-dev"
+    'nitro-cloudflare-dev'
   ],
   // robots: {
   //   blockAiBots: true
