@@ -18,7 +18,10 @@ export default defineNuxtConfig({
         },
         { rel: 'me', href: 'https://github.com/adamisarobot' },
         { rel: 'me', href: 'https://hardcover.app/@adam4ever' },
-        { rel: 'me', href: 'https://www.themoviedb.org/u/adam4ever' }
+        { rel: 'me', href: 'https://www.themoviedb.org/u/adam4ever' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Arvo:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap' }
       ]
     }
   },
@@ -45,20 +48,12 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
-    // '@nuxtjs/robots',
     '@nuxtjs/cloudinary',
-    '@nuxt/fonts',
     'nuxt-time',
     '@nuxt/content',
     'nitro-cloudflare-dev'
   ],
-  // robots: {
-  //   blockAiBots: true
-  // },
-
-  // routeRules: {
-  //   '/': { prerender: true }
-  // },
+  
   nitro: {
     preset: "cloudflare_module",
 
