@@ -26,6 +26,8 @@
   },
   "devDependencies": {
     "@eslint/css": "^0.3.0",
+    "@types/cheerio": "^0.22.35",
+    "cheerio": "^1.2.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.2",
     "nitro-cloudflare-dev": "^0.2.2",
