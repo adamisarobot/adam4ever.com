@@ -7,9 +7,9 @@ A blogroject if you will.
 
 ## In Progress
 
-- [ ] Add a simple navigation with filters for content
-- [ ] ToC, Archives, and Filters
-- [ ] RSS, sitemap
+- [ ] Review Popfeed for ideas to incorporate into the blog
+  - [ ] Add a Video game feed (Movies, Books, TV, Games, Music)
+- [ ] Add a post entry CMS to allow for easy content creation
 
 ## Next Up
 
@@ -19,6 +19,9 @@ A blogroject if you will.
 
 ## To Dos
 
+- [ ] Add a simple navigation with filters for content
+- [ ] ToC, Archives, and Filters
+- [ ] RSS, sitemap
 - [ ] Use the title as breadcrumb for navigating
 - [ ] Polaroid Picture Presentation
 - [ ] Pixelfed Connection
