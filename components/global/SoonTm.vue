@@ -15,7 +15,9 @@ const props = defineProps({
   }
 });
 
-const message = props.date !== '' ? props.date : 'Soon-ish? Maybe? :D';
+const message = computed(() =>
+  props.date !== '' ? props.date : 'Soon-ish? Maybe? :D'
+);
 </script>
 
 <style>
