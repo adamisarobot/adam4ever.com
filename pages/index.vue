@@ -44,7 +44,7 @@ function isBook(post: Post): post is Book {
 
           <BlueSky v-else-if="isBskyPost(post)" :post="post" />
 
-          <TMDBWatchlist v-else-if="isMovie(post)" :movie="post" />
+          <TmdbCard v-else-if="isMovie(post)" :movie="post" />
 
           <HardCover v-else-if="isBook(post)" :book="post" />
 

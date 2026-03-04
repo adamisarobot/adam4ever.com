@@ -23,6 +23,7 @@ export interface Movie {
   video: number;
   vote_average: number;
   vote_count: number;
+  tagline?: string;
   created_at: string;
   meta: Meta & { source: 'tmdb' };
 }
