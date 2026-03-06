@@ -1,4 +1,4 @@
-import type { ParsedContent } from '@nuxt/content';
+
 
 type Meta = {
   category: string;
@@ -64,7 +64,15 @@ export interface Book {
   data?: string;
 }
 
-export interface BlogPost extends ParsedContent {
+export interface BlogPost {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  path: string;
+  draft?: boolean;
+  tags?: string[];
+  body: any;
   created_at: string;
   meta: Meta & { source: 'blog' };
 }
@@ -75,4 +83,4 @@ export interface Firehose {
 
 export type Post = Movie | BskyPost | Book | BlogPost;
 
-export type FirehoseData = Post[];
+export type FirehoseData = Post[] | { error: string; message: string; name?: string };

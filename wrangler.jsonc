@@ -7,11 +7,20 @@
 	"name": "adam4ever-com",
 	"main": "./.output/server/index.mjs",
 	"compatibility_date": "2025-09-27",
-	"compatibility_flags": ["global_fetch_strictly_public"],
+	"compatibility_flags": [
+		"global_fetch_strictly_public"
+	],
 	"assets": {
 		"binding": "ASSETS",
 		"directory": "./.output/public/"
 	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "content-db",
+			"database_id": "default-local-id"
+		}
+	],
 	"observability": {
 		"enabled": true
 	}
