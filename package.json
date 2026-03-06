@@ -12,28 +12,29 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
-    "@atproto/api": "^0.13.20",
-    "@nuxt/content": "^2.13.4",
-    "@nuxt/eslint": "^0.7.5",
-    "@nuxt/image": "^1.8.1",
-    "@nuxt/kit": "^3.20.2",
+    "@atproto/api": "^0.19.3",
+    "@nuxt/content": "^3.0.0",
+    "@nuxt/eslint": "^1.15.2",
+    "@nuxt/image": "^2.0.0",
+    "@nuxt/kit": "^3.21.1",
     "@nuxtjs/cloudinary": "^4.0.0",
-    "@nuxtjs/color-mode": "^3.5.2",
-    "@nuxtjs/seo": "^2.1.1",
-    "eslint": "^9.18.0",
     "fast-average-color": "^9.5.0",
-    "nuxt": "^3.14.1592",
+    "@nuxtjs/color-mode": "^4.0.0",
+    "@nuxtjs/seo": "^3.4.0",
+    "better-sqlite3": "^12.6.2",
+    "eslint": "^10.0.2",
+    "nuxt": "^3.21.1",
     "nuxt-time": "^1.0.3"
   },
   "devDependencies": {
-    "@eslint/css": "^0.3.0",
+    "@eslint/css": "^0.14.1",
     "@types/cheerio": "^0.22.35",
     "cheerio": "^1.2.0",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-prettier": "^5.2.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "nitro-cloudflare-dev": "^0.2.2",
-    "nitropack": "^2.13.0",
-    "prettier": "^3.4.2",
-    "wrangler": "^4.54.0"
+    "nitropack": "^2.13.1",
+    "prettier": "^3.8.1",
+    "wrangler": "^4.71.0"
   }
 }

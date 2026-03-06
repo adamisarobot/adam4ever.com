@@ -1,5 +1,4 @@
 import type { Firehose, FirehoseData, BlogPost } from '~/types/firehose';
-import { serverQueryContent } from '#content/server';
 
 export default defineEventHandler(async (event) => {
   const FIREHOSE_API_URL = 'https://firehose.a4e.workers.dev/api/v1/';
@@ -21,8 +20,11 @@ export default defineEventHandler(async (event) => {
 
     const firehoseData: Firehose = await response.json();
 
-    // Fetch data from Nuxt Content internally
-    const blogs = await serverQueryContent(event).find();
+    // Fetch data from Nuxt Content v3 internally
+    let blogs = await queryCollection(event, 'blog').all();
+
+    // Ignore draft posts
+    blogs = blogs.filter(blog => !blog.draft);
 
     // Merge and sort data by created_at
     const mergedData = [
@@ -32,14 +34,14 @@ export default defineEventHandler(async (event) => {
           source: 'blog',
           category: 'blog'
         },
-        created_at: blog?.date || blog?.created_at
+        created_at: blog.date || blog.meta?.date || new Date().toISOString()
       })),
       ...firehoseData.data.map((item) => ({
         ...item
       }))
     ].sort(
       (a, b) =>
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        new Date(b.created_at as string).getTime() - new Date(a.created_at as string).getTime()
     );
 
     return mergedData as FirehoseData;
