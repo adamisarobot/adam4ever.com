@@ -21,6 +21,7 @@
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/seo": "^2.1.1",
     "eslint": "^9.18.0",
+    "fast-average-color": "^9.5.0",
     "nuxt": "^3.14.1592",
     "nuxt-time": "^1.0.3"
   },

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import type { Movie } from '~/types/firehose';
+import { FastAverageColor } from 'fast-average-color';
 
 const props = defineProps<{
   movie: Movie;
@@ -23,6 +24,87 @@ const scoreColor = computed(() => {
   if (scorePercentage.value >= 40) return '#d2d531';
   return '#db2360';
 });
+
+// Dynamic gradient states for poster extraction
+const cardGradientDesktop = ref('linear-gradient(to right, rgba(13, 37, 63, 1) 150px, rgba(13, 37, 63, 0.84) 100%)');
+const cardGradientMobile = ref('linear-gradient(to bottom, rgba(13, 37, 63, 1) 150px, rgba(13, 37, 63, 0.84) 100%)');
+
+// A11y Contrast Calculation
+// WCAG relative luminance
+const getLuminance = (r: number, g: number, b: number) => {
+  const a = [r, g, b].map((v) => {
+    v /= 255;
+    return v <= 0.03928
+      ? v / 12.92
+      : Math.pow((v + 0.055) / 1.055, 2.4);
+  });
+  return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+};
+
+// Contrast ratio
+const getContrastRatio = (l1: number, l2: number) => {
+  const lighter = Math.max(l1, l2);
+  const darker = Math.min(l1, l2);
+  return (lighter + 0.05) / (darker + 0.05);
+};
+
+// Darken or lighten color to meet a target contrast range against white text
+const ensureA11yContrast = (rgb: number[]) => {
+  let [r, g, b] = rgb;
+  const minRatio = 4.5;
+  const maxRatio = 10.0; // Upper limit to stop the background from getting too black
+  const whiteLuminance = 1.0; // getLuminance(255, 255, 255)
+
+  let luminance = getLuminance(r, g, b);
+  let contrast = getContrastRatio(whiteLuminance, luminance);
+
+  let iterations = 0;
+  // Reduce lightness iteratively if it's too bright (contrast < 4.5)
+  while (contrast < minRatio && iterations < 20) {
+    r = Math.floor(r * 0.9);
+    g = Math.floor(g * 0.9);
+    b = Math.floor(b * 0.9);
+    
+    luminance = getLuminance(r, g, b);
+    contrast = getContrastRatio(whiteLuminance, luminance);
+    iterations++;
+  }
+
+  // Increase lightness iteratively if it's too black (contrast > maxRatio)
+  iterations = 0;
+  while (contrast > maxRatio && iterations < 20 && r < 255 && g < 255 && b < 255) {
+    // Offset by +2 to avoid getting completely stuck at rgb(0,0,0)
+    r = Math.min(255, Math.floor(r * 1.1) + 5);
+    g = Math.min(255, Math.floor(g * 1.1) + 5);
+    b = Math.min(255, Math.floor(b * 1.1) + 5);
+    
+    luminance = getLuminance(r, g, b);
+    contrast = getContrastRatio(whiteLuminance, luminance);
+    iterations++;
+  }
+
+  return [r, g, b];
+};
+
+const fac = new FastAverageColor();
+
+const extractColor = async (e: Event) => {
+  const imgElement = e.target as HTMLImageElement;
+  if (!imgElement || imgElement.tagName !== 'IMG') return;
+
+  try {
+    const color = await fac.getColorAsync(imgElement, { algorithm: 'dominant' });
+    let [r, g, b] = color.value;
+    
+    // Check contrast against white text and darken if needed
+    [r, g, b] = ensureA11yContrast([r, g, b]);
+
+    cardGradientDesktop.value = `linear-gradient(to right, rgba(${r}, ${g}, ${b}, 1) 150px, rgba(${r}, ${g}, ${b}, 0.84) 100%)`;
+    cardGradientMobile.value = `linear-gradient(to bottom, rgba(${r}, ${g}, ${b}, 1) 150px, rgba(${r}, ${g}, ${b}, 0.84) 100%)`;
+  } catch (error) {
+    console.error('Error extracting color from poster:', error);
+  }
+};
 </script>
 
 <template>
@@ -39,6 +121,8 @@ const scoreColor = computed(() => {
           :src="`https://image.tmdb.org/t/p/w300${movie.poster_path}`" 
           :alt="movie.title"
           loading="lazy"
+          crossorigin="anonymous"
+          @load="extractColor"
         />
       </div>
       
@@ -131,7 +215,8 @@ const scoreColor = computed(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to right, rgba(13, 37, 63, 1) 150px, rgba(13, 37, 63, 0.84) 100%);
+  background: v-bind('cardGradientDesktop');
+  transition: background 0.8s ease-in-out;
 }
 
 .tmdb-card-content {
@@ -285,7 +370,7 @@ const scoreColor = computed(() => {
   }
   
   .tmdb-card-bg::after {
-    background: linear-gradient(to bottom, rgba(13, 37, 63, 1) 150px, rgba(13, 37, 63, 0.84) 100%);
+    background: v-bind('cardGradientMobile');
   }
 
   .tmdb-poster {
