@@ -8,12 +8,12 @@ defineProps<{
 </script>
 
 <template>
-  <li v-if="post._draft === false" class="corner-icon nuxt">
+  <li class="corner-icon nuxt">
     <span class="timestamp">
       <NuxtTime :datetime="post.created_at" />
     </span>
     <h2>
-      <NuxtLink :to="post._path">{{ post.title }}</NuxtLink>
+      <NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
     </h2>
     <p>{{ post.description }}</p>
     <p class="blog-categories">

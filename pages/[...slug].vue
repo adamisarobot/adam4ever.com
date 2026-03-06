@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 const route = useRoute();
 
+const { data: blog } = await useAsyncData(route.path, () => {
+  return queryCollection('blog').path(route.path).first()
+})
+
 useHead({
   title: 'Adam4ever - the blogroject',
   meta: [
@@ -21,8 +25,7 @@ useHead({
 <template>
   <main>
     <div class="feed">
-      <ContentDoc>
-        <template #default="{ doc: blog }">
+      <template v-if="blog">
           <article class="post card h-entry">
             <h1 class="p-name">{{ blog.title }}</h1>
             <p class="post-summary p-summary">{{ blog.description }}</p>
@@ -58,8 +61,7 @@ useHead({
               </time>
             </div>
           </article>
-        </template>
-      </ContentDoc>
+      </template>
     </div>
   </main>
 </template>

@@ -13,13 +13,21 @@ const { data: firehose, error } = await useAsyncData<FirehoseData>(
   () => $fetch<FirehoseData>('/api/fetch-firehose')
 );
 
+// Computed property to safely cast to array to avoid template TS errors
+const posts = computed(() => {
+  if (firehose.value && Array.isArray(firehose.value)) {
+    return firehose.value as Post[];
+  }
+  return [];
+});
+
 useHead({
   title: 'The Blogroject'
 });
 
 // Type guards for narrowing down the post type
 function isBlogPost(post: Post): post is BlogPost {
-  return (post as BlogPost).meta?.source === 'blog';
+  return post && 'meta' in post && post.meta?.source === 'blog';
 }
 
 function isMovie(post: Post): post is Movie {
@@ -38,8 +46,8 @@ function isBook(post: Post): post is Book {
 <template>
   <main>
     <section id="feed" class="feed">
-      <ul v-if="!error && firehose && !firehose.error" class="firehose">
-        <template v-for="post in firehose" :key="post.id">
+      <ul v-if="!error && posts.length > 0" class="firehose">
+        <template v-for="post in posts" :key="post.id">
           <BlogCard v-if="isBlogPost(post)" :post="post" />
 
           <BlueSky v-else-if="isBskyPost(post)" :post="post" />
@@ -64,7 +72,7 @@ function isBook(post: Post): post is Book {
           </p>
         </li> -->
       </ul>
-      <div v-else-if="firehose?.error" class="error-state">
+      <div v-else-if="firehose && !Array.isArray(firehose) && 'error' in firehose" class="error-state">
         <p>{{ firehose.error }}</p>
         <pre v-if="firehose.message">{{ firehose.message }}</pre>
       </div>
