@@ -38,6 +38,18 @@
         <circle cx="24" cy="10" r="6" fill="black" />
       </mask>
     </svg>
+    <svg
+      class="beta-icon"
+      aria-hidden="true"
+      width="24"
+      height="24"
+      viewBox="0 0 123.8 272.4"
+    >
+      <path
+        fill="currentColor"
+        d="M37.80 261.80L16.60 261.80L16.60 108Q16.60 91.20 22.70 80.80Q28.80 70.40 39.30 65.60Q49.80 60.80 63.20 60.80L63.20 60.80Q83.80 60.80 95.20 70.60Q106.60 80.40 106.60 99L106.60 99Q106.60 113.40 98.60 121.90Q90.60 130.40 78.60 132.60L78.60 132.60L78.60 133.40Q94 135.40 103.70 145Q113.40 154.60 113.40 172.80L113.40 172.80Q113.40 186.60 107.20 196.20Q101 205.80 90.50 210.80Q80 215.80 67 215.80L67 215.80Q56.60 215.80 50.40 214Q44.20 212.20 37.80 209.20L37.80 209.20L37.80 261.80ZM64.20 198.60L64.20 198.60Q77 198.60 84.40 191.40Q91.80 184.20 91.80 171.20L91.80 171.20Q91.80 161.20 88 154.80Q84.20 148.40 78 145.30Q71.80 142.20 64.80 142.20L64.80 142.20L50.40 142.20L50.40 126L62.80 126Q73.20 126 79.10 119Q85 112 85 100.60L85 100.60Q85 89.20 78.50 83.60Q72 78 62.80 78L62.80 78Q56.20 78 50.50 80.60Q44.80 83.20 41.30 89.90Q37.80 96.60 37.80 108.60L37.80 108.60L37.80 190.80Q44.20 194.40 50.10 196.50Q56 198.60 64.20 198.60Z"
+      />
+    </svg>
   </button>
 </template>
 
@@ -45,7 +57,10 @@
 const colorMode = useColorMode();
 
 const toggleTheme = () => {
-  colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark';
+  const modes = ['light', 'dark', 'beta'];
+  const currentIndex = modes.indexOf(colorMode.preference);
+  const nextIndex = (currentIndex + 1) % modes.length;
+  colorMode.preference = modes[nextIndex];
 };
 </script>
 
@@ -83,9 +98,18 @@ const toggleTheme = () => {
     --icon-fill-hover: hsl(210 15% 90%);
   }
 
+  [data-theme='beta'] & {
+    --icon-fill: hsl(280 60% 60%);
+    --icon-fill-hover: hsl(280 70% 80%);
+  }
+
   @media (hover: none) {
     --size: 48px;
   }
+}
+
+.beta-icon {
+  display: none;
 }
 
 .sun-and-moon {
@@ -128,6 +152,21 @@ const toggleTheme = () => {
       @supports (cx: 1px) {
         transform: translateX(0);
         cx: 17px;
+      }
+    }
+  }
+
+  [data-theme='beta'] & {
+    & .sun-and-moon {
+      display: none;
+    }
+
+    & .beta-icon {
+      display: block;
+      color: var(--icon-fill);
+
+      &:hover {
+        color: var(--icon-fill-hover);
       }
     }
   }

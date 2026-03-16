@@ -41,6 +41,8 @@ function isBskyPost(post: Post): post is BskyPost {
 function isBook(post: Post): post is Book {
   return (post as Book).meta?.source === 'hardcover';
 }
+
+const colorMode = useColorMode();
 </script>
 
 <template>
@@ -52,7 +54,10 @@ function isBook(post: Post): post is Book {
 
           <BlueSky v-else-if="isBskyPost(post)" :post="post" />
 
-          <TmdbCard v-else-if="isMovie(post)" :movie="post" />
+          <template v-else-if="isMovie(post)">
+            <TmdbCard v-if="colorMode.value === 'beta'" :movie="post" />
+            <TMDBWatchlist v-else :movie="post" />
+          </template>
 
           <HardCover v-else-if="isBook(post)" :book="post" />
 
