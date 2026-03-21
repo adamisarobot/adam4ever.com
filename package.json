@@ -20,6 +20,7 @@
     "@nuxtjs/cloudinary": "^4.0.0",
     "@nuxtjs/color-mode": "^4.0.0",
     "@nuxtjs/seo": "^3.4.0",
+    "bad-words": "^4.0.0",
     "better-sqlite3": "^12.6.2",
     "eslint": "^10.0.2",
     "nuxt": "^3.21.1",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@eslint/css": "^0.14.1",
+    "@types/bad-words": "^3.0.3",
     "@types/cheerio": "^0.22.35",
     "cheerio": "^1.2.0",
     "eslint-config-prettier": "^10.1.8",

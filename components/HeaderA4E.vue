@@ -14,6 +14,9 @@
     </div>
 
     <ThemeSwitch />
+    <div class="visitor-wrapper">
+      <VisitorWidget />
+    </div>
 
     <h1 class="hero">
       <NuxtLink to="/">Adam4ever</NuxtLink>
@@ -61,5 +64,11 @@
   [data-theme='dark'] & {
     filter: invert(1);
   }
+}
+
+.visitor-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 </style>
