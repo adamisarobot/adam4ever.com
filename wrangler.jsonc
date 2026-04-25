@@ -18,7 +18,7 @@
 		{
 			"binding": "DB",
 			"database_name": "content-db",
-			"database_id": "default-local-id"
+			"database_id": "c697d34a-418a-40ac-97e0-4503079740f8"
 		}
 	],
 	"observability": {
