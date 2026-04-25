@@ -1,6 +1,7 @@
 // @ts-check
 import withNuxt from './.nuxt/eslint.config.mjs';
 import css from '@eslint/css';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 export default withNuxt(
   // Your custom configs here
@@ -13,11 +14,13 @@ export default withNuxt(
     }
   },
   {
-    files: ['**/*.{css, vue}'],
+    files: ['**/*.css'],
     plugins: { css },
     language: 'css/css',
     rules: {
-      'css/no-duplicate-imports': 'error'
+      'css/no-duplicate-imports': 'error',
+      'no-irregular-whitespace': 'off'
     }
-  }
+  },
+  eslintPluginPrettierRecommended
 );

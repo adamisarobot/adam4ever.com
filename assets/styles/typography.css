@@ -24,7 +24,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2rem, 2vw, 3rem);
+  font-size: clamp(1.8rem, 2vw, 2.4rem);
   line-height: 1.2;
 }
 

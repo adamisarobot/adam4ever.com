@@ -47,7 +47,9 @@ function isBook(post: Post): post is Book {
   <main>
     <section id="feed" class="feed">
       <ul v-if="!error && posts.length > 0" class="firehose">
+
         <template v-for="post in posts" :key="post.id">
+
           <BlogCard v-if="isBlogPost(post)" :post="post" />
 
           <BlueSky v-else-if="isBskyPost(post)" :post="post" />
@@ -58,6 +60,7 @@ function isBook(post: Post): post is Book {
 
           <pre v-else>{{ post }}</pre>
         </template>
+
 
         <!--
         <li v-if="song && !songError" class="corner-icon spotify">

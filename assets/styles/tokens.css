@@ -40,7 +40,7 @@
   --link: var(--highlight);
 
   /* 2. Typography --*/
-  --base-font-size: 1.2rem;
+  --base-font-size: 1rem;
   --font-sans: 'Open Sans', sans-serif;
   --font-serif: 'Arvo', serif;
   --font-display: 'Bespoke Slab', serif;
