@@ -19,12 +19,6 @@
       border-color: var(--slate-100);
       box-shadow: 4px 4px rgb(255, 255, 255);
     }
-
-    h2 {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
   }
 
   p {
@@ -81,5 +75,82 @@
     font-size: 0.8rem;
     color: var(--slate-500);
     margin-bottom: 0.5rem;
+  }
+}
+
+/* New Card Styles - Need consolidation */
+.firehose {
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .card-image {
+    display: none;
+  }
+
+  .card-image .poster-image {
+    max-width: auto;
+  }
+
+  .card-content h2 {
+    margin-bottom: 1.2rem;
+  }
+
+  .card-content h2::after {
+    display: block;
+    content: '';
+    width: 4rem;
+    height: 5px;
+    background-color: var(--blue-500);
+    margin-top: 1rem;
+  }
+
+  .card-content img {
+    max-width: 14ch;
+  }
+
+  @media screen and (min-width: 48rem) {
+    .card {
+      display: grid;
+      grid-template-areas: 'image content meta';
+      grid-template-columns: 1fr 2fr auto;
+
+      padding: 1rem;
+    }
+
+    .card h2 {
+      font-weight: bold;
+    }
+
+    .card-image {
+      display: block;
+      grid-area: image;
+      margin-right: 1rem;
+    }
+
+    .card-image .poster-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-content {
+      grid-area: content;
+      margin-left: 1rem;
+    }
+
+    .card-content img {
+      display: none;
+    }
+
+    .card-meta {
+      grid-area: meta;
+    }
+
+    .card-meta .timestamp {
+      position: static;
+      margin-left: 1rem;
+    }
   }
 }
