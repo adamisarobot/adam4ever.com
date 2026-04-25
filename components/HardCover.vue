@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <li class="card corner-icon tmdb">
+  <li class="card corner-icon hardcover">
     <div class="card-image">
       <NuxtImg class="poster-image" :src="book.image_url" :alt="book.title" />
     </div>
