@@ -3,10 +3,10 @@ const UTCtoLocal = (date: string | undefined) => {
   return new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric',
+    day: 'numeric'
   });
 };
 
 export default {
-  UTCtoLocal,
+  UTCtoLocal
 };

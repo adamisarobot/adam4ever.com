@@ -1,12 +1,12 @@
 <template>
   <a
+    ref="link"
     :href="url"
     target="_blank"
     rel="noopener noreferrer"
     class="fetch-display-link"
     @mouseenter="startFetch"
     @focus="startFetch"
-    ref="link"
   >
     <slot>{{ text || url }}</slot>
     <span class="tool-tip" :tip-position="tipPosition">

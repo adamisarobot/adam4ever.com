@@ -2,8 +2,8 @@
 const route = useRoute();
 
 const { data: blog } = await useAsyncData(route.path, () => {
-  return queryCollection('blog').path(route.path).first()
-})
+  return queryCollection('blog').path(route.path).first();
+});
 
 useHead({
   title: 'Adam4ever - the blogroject',
@@ -26,41 +26,41 @@ useHead({
   <main>
     <div class="feed">
       <template v-if="blog">
-          <article class="post card h-entry">
-            <h1 class="p-name">{{ blog.title }}</h1>
-            <p class="post-summary p-summary">{{ blog.description }}</p>
+        <article class="post card h-entry">
+          <h1 class="p-name">{{ blog.title }}</h1>
+          <p class="post-summary p-summary">{{ blog.description }}</p>
 
-            <ContentRenderer class="e-content" :value="blog" />
+          <ContentRenderer class="e-content" :value="blog" />
 
-            <div class="return">
-              <NuxtLink to="/">
-                <BackArrowIcon class="arrow" />
-                <span>Back</span>
-              </NuxtLink>
-            </div>
+          <div class="return">
+            <NuxtLink to="/">
+              <BackArrowIcon class="arrow" />
+              <span>Back</span>
+            </NuxtLink>
+          </div>
 
-            <div class="made-by">
-              <a
-                :href="`https://adam4ever.com${route.path}`"
-                class="u-url u-syndication p-author h-card"
+          <div class="made-by">
+            <a
+              :href="`https://adam4ever.com${route.path}`"
+              class="u-url u-syndication p-author h-card"
+            >
+              Adam Ritchie
+            </a>
+            <div>
+              <span
+                v-for="cat in blog.tags"
+                :key="cat"
+                class="category p-category"
               >
-                Adam Ritchie
-              </a>
-              <div>
-                <span
-                  v-for="cat in blog.tags"
-                  :key="cat"
-                  class="category p-category"
-                >
-                  {{ cat }}
-                </span>
-              </div>
-
-              <time class="dt-published" :datetime="blog.date">
-                {{ blog.date }}
-              </time>
+                {{ cat }}
+              </span>
             </div>
-          </article>
+
+            <time class="dt-published" :datetime="blog.date">
+              {{ blog.date }}
+            </time>
+          </div>
+        </article>
       </template>
     </div>
   </main>

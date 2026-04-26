@@ -10,7 +10,7 @@ const spotifyTrack = (playlistTrack: SpotifyPlaylistTrack) => {
     artists: track.artists,
     album: track.album.name,
     album_art: track.album.images,
-    external_url: track.external_urls.spotify,
+    external_url: track.external_urls.spotify
   };
 };
 
@@ -25,12 +25,12 @@ const bskyPost = (post: AppBskyFeedGetAuthorFeed.Response['data']['feed']) => {
     author: {
       avatar: author.avatar,
       displayName: author.displayName,
-      handle: author.handle,
+      handle: author.handle
     },
     record: {
       text: record.text,
-      createdAt: record.createdAt,
-    },
+      createdAt: record.createdAt
+    }
   };
 
   return bPost;
@@ -38,5 +38,5 @@ const bskyPost = (post: AppBskyFeedGetAuthorFeed.Response['data']['feed']) => {
 
 export default {
   spotifyTrack,
-  bskyPost,
+  bskyPost
 };
