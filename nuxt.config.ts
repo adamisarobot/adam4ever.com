@@ -20,8 +20,15 @@ export default defineNuxtConfig({
         { rel: 'me', href: 'https://hardcover.app/@adam4ever' },
         { rel: 'me', href: 'https://www.themoviedb.org/u/adam4ever' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap' }
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: 'anonymous'
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap'
+        }
       ]
     }
   },
@@ -53,9 +60,9 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nitro-cloudflare-dev'
   ],
-  
+
   nitro: {
-    preset: "cloudflare_module",
+    preset: 'cloudflare_module',
 
     cloudflare: {
       deployConfig: true,

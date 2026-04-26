@@ -13,8 +13,8 @@ export default defineEventHandler(async (event) => {
     `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
     {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
+        Authorization: `Bearer ${accessToken}`
+      }
     }
   );
 

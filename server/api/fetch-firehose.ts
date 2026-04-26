@@ -7,15 +7,20 @@ export default defineEventHandler(async (event) => {
     // Fetch data from the external firehose API
     const response = await fetch(FIREHOSE_API_URL, {
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'User-Agent': 'Adam4ever-Nuxt-SSR'
       }
     });
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error(`Firehose fetch failed: ${response.status} ${response.statusText}`, errorText);
-      throw new Error(`External API returned ${response.status}: ${errorText.substring(0, 100)}`);
+      console.error(
+        `Firehose fetch failed: ${response.status} ${response.statusText}`,
+        errorText
+      );
+      throw new Error(
+        `External API returned ${response.status}: ${errorText.substring(0, 100)}`
+      );
     }
 
     const firehoseData: Firehose = await response.json();
@@ -24,7 +29,7 @@ export default defineEventHandler(async (event) => {
     let blogs = await queryCollection(event, 'blog').all();
 
     // Ignore draft posts
-    blogs = blogs.filter(blog => !blog.draft);
+    blogs = blogs.filter((blog) => !blog.draft);
 
     // Merge and sort data by created_at
     const mergedData = [
@@ -41,7 +46,8 @@ export default defineEventHandler(async (event) => {
       }))
     ].sort(
       (a, b) =>
-        new Date(b.created_at as string).getTime() - new Date(a.created_at as string).getTime()
+        new Date(b.created_at as string).getTime() -
+        new Date(a.created_at as string).getTime()
     );
 
     return mergedData as FirehoseData;

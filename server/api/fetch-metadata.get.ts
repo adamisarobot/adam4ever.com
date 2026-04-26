@@ -39,7 +39,8 @@ export default defineCachedEventHandler(
       };
 
       const title = getMeta('og:title') || $('title').text() || '';
-      const description = getMeta('og:description') || getMeta('description') || '';
+      const description =
+        getMeta('og:description') || getMeta('description') || '';
       const image = getMeta('og:image') || '';
       const siteName = getMeta('og:site_name') || '';
 

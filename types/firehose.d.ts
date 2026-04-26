@@ -1,5 +1,3 @@
-
-
 type Meta = {
   category: string;
   source: 'blog' | 'bluesky' | 'tmdb' | 'hardcover';
@@ -83,4 +81,6 @@ export interface Firehose {
 
 export type Post = Movie | BskyPost | Book | BlogPost;
 
-export type FirehoseData = Post[] | { error: string; message: string; name?: string };
+export type FirehoseData =
+  | Post[]
+  | { error: string; message: string; name?: string };

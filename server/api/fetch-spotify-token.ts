@@ -20,9 +20,9 @@ export default defineEventHandler(async (event) => {
       method: 'POST',
       baseURL: 'https://accounts.spotify.com/',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body: params,
+      body: params
     });
 
     return data as SpotifyToken;
