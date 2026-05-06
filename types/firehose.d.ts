@@ -46,17 +46,36 @@ export interface BskyPost {
   meta: Meta & { source: 'bluesky' };
 }
 
+// export interface Book {
+//   id: number;
+//   uuid: string;
+//   title: string;
+//   author_name: string;
+//   series_name: string;
+//   series_position: number;
+//   image_url: string;
+//   progress: number | null;
+//   started_at: string;
+//   rating: number;
+//   created_at: string;
+//   meta: Meta & { source: 'hardcover' };
+//   data?: string;
+// }
 export interface Book {
   id: number;
   uuid: string;
   title: string;
-  author_name: string;
-  series_name: string;
-  series_position: number;
-  image_url: string;
-  progress: number | null;
-  started_at: string;
   rating: number;
+  user_rating: number | null;
+  ratings_count: number;
+  description: string;
+  headline: string;
+  series_name: string | null;
+  series_position: number | null;
+  author_name: string;
+  image_url: string;
+  progress: number;
+  started_at: string;
   created_at: string;
   meta: Meta & { source: 'hardcover' };
   data?: string;

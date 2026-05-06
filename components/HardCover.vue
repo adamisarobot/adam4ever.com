@@ -1,9 +1,20 @@
 <script setup lang="ts">
 import type { Book } from '~/types/firehose';
 
-defineProps<{
+const props = defineProps<{
   book: Book;
 }>();
+
+const truncatedDescription = computed(() => {
+  const description = props.book.description;
+  if (!description) {
+    return 'No Description Available';
+  }
+  if (description.length > 360) {
+    return description.substring(0, 360) + '...';
+  }
+  return description;
+});
 </script>
 
 <template>
@@ -12,9 +23,10 @@ defineProps<{
       <NuxtImg class="poster-image" :src="book.image_url" :alt="book.title" />
     </div>
     <div class="card-content">
-      <h2>{{ book.title }}</h2>
+      <h2 :data-author="book.author_name">{{ book.title }}</h2>
       <NuxtImg class="poster-image" :src="book.image_url" :alt="book.title" />
-      <p>{{ book.title }} - {{ book.author_name }}</p>
+      <!-- <p class="headline" v-if="book.headline">{{ book.headline }}</p> -->
+      <p class="description">{{ truncatedDescription }}</p>
       <div class="card-badges">
         <Badge>readlist</Badge>
       </div>
