@@ -9,13 +9,13 @@ A blogroject if you will.
 
 - [ ] Review Popfeed for ideas to incorporate into the blog
   - [ ] Add a Video game feed (Movies, Books, TV, Games, Music)
-- [ ] Add a post entry CMS to allow for easy content creation
+- [ ] Add Nuxt Studio to allow for CMS style content editing
+- [ ] Word of the Day | TIL widget
 
 ## Next Up
 
 - [ ] Links of the week regular post
 - [ ] Open Graph image using Cloudinary to display text and timestamp
-- [ ] A word of the day || TIL this new Word widget
 
 ## To Dos
 
