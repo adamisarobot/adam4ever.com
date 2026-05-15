@@ -19,6 +19,11 @@
 			"binding": "DB",
 			"database_name": "content-db",
 			"database_id": "c697d34a-418a-40ac-97e0-4503079740f8"
+		},
+		{
+			"binding": "A4E",
+			"database_name": "adam4ever_com",
+			"database_id": "b13d21a3-7ffa-4b2f-b32b-1de8f9472f05"
 		}
 	],
 	"observability": {

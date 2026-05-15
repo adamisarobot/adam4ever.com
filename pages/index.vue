@@ -45,9 +45,16 @@ function isBook(post: Post): post is Book {
 
 <template>
   <main>
+    <section class="widgets">
+      <button class="widget dictionary">
+
+      </button>
+    </section>
     <section id="feed" class="feed">
+      <DictionaryWidget word="idempotent" />.
       <ul v-if="!error && posts.length > 0" class="firehose">
         <template v-for="post in posts" :key="post.id">
+
           <BlogCard v-if="isBlogPost(post)" :post="post" />
 
           <BlueSky v-else-if="isBskyPost(post)" :post="post" />
@@ -72,10 +79,7 @@ function isBook(post: Post): post is Book {
           </p>
         </li> -->
       </ul>
-      <div
-        v-else-if="firehose && !Array.isArray(firehose) && 'error' in firehose"
-        class="error-state"
-      >
+      <div v-else-if="firehose && !Array.isArray(firehose) && 'error' in firehose" class="error-state">
         <p>{{ firehose.error }}</p>
         <pre v-if="firehose.message">{{ firehose.message }}</pre>
       </div>

@@ -51,15 +51,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: [
-    '@nuxt/image',
-    '@nuxtjs/color-mode',
-    '@nuxt/eslint',
-    '@nuxtjs/cloudinary',
-    'nuxt-time',
-    '@nuxt/content',
-    'nitro-cloudflare-dev'
-  ],
+  modules: ['@nuxt/image', '@nuxtjs/color-mode', '@nuxt/eslint', '@nuxtjs/cloudinary', 'nuxt-time', '@nuxt/content', 'nitro-cloudflare-dev', '@nuxt/icon'],
 
   nitro: {
     preset: 'cloudflare_module',
