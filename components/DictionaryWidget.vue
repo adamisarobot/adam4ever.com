@@ -1,23 +1,19 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import type { DictionaryWord } from '~/types/firehose';
 
 const props = defineProps<{
-  word: string;
+  wordData: DictionaryWord;
 }>();
 
-const { data, pending, error } = await useFetch('/api/dictionary', {
-  query: { word: props.word },
-  key: `dictionary-${props.word}` // Avoid sharing cache incorrectly
-});
-
 const entry = computed(() => {
-  if (data.value && data.value.data && data.value.data.length > 0) {
-    return data.value.data[0];
+  if (props.wordData.data && props.wordData.data.length > 0) {
+    return props.wordData.data[0];
   }
   return null;
 });
 
-const audioData = computed(() => data.value?.audio_data);
+const audioData = computed(() => props.wordData.audio_data);
 
 const playAudio = () => {
   if (audioData.value) {
@@ -48,50 +44,39 @@ const phoneticText = computed(() => {
 </script>
 
 <template>
-  <ul class="firehose">
-    <li class="card" v-if="!error">
-      <div class="card-content">
-        <h2>{{ props.word }}</h2>
+  <li class="card dictionary corner-icon">
+    <div class="card-content">
+      <h2>{{ props.wordData.word }}</h2>
 
-        <p class="phonetic" v-if="phoneticText || audioData">
-          <span v-if="phoneticText">{{ phoneticText }}</span>
-          <button v-if="audioData" @click="playAudio" class="play-btn" aria-label="Play pronunciation"
-            title="Play pronunciation">
-            <Icon name="mi:play" />
-          </button>
-        </p>
+      <p class="phonetic" v-if="phoneticText || audioData">
+        <span v-if="phoneticText">{{ phoneticText }}</span>
+        <button v-if="audioData" @click="playAudio" class="play-btn" aria-label="Play pronunciation"
+          title="Play pronunciation">
+          <Icon name="mi:play" />
+        </button>
+      </p>
 
-        <div v-if="pending" class="description">
-          <p>Loading definition...</p>
-        </div>
-        <div v-else-if="definitions.length > 0" class="description">
-          <ul>
-            <li v-for="(def, index) in definitions" :key="index">
-              <em>{{ def.partOfSpeech }}</em>: {{ def.definition }}
-            </li>
-          </ul>
-        </div>
-        <div v-else class="description">
-          <p>No definition found.</p>
-        </div>
+      <div v-if="definitions.length > 0" class="description">
+        <ul>
+          <li v-for="(def, index) in definitions" :key="index">
+            <em>{{ def.partOfSpeech }}</em>: {{ def.definition }}
+          </li>
+        </ul>
+      </div>
+      <div v-else class="description">
+        <p>No definition found.</p>
+      </div>
 
-        <div class="card-badges">
-          <Badge>TIL Word</Badge>
-        </div>
+      <div class="card-badges">
+        <Badge>TIL Word</Badge>
       </div>
-      <div class="card-meta" v-if="data?.created_at">
-        <span class="timestamp">
-          <NuxtTime :datetime="data.created_at" />
-        </span>
-      </div>
-    </li>
-    <li class="card corner-icon dictionary error" v-else>
-      <div class="card-content">
-        <h2>{{ props.word }}</h2>
-        <p class="description">Failed to load definition.</p>
-      </div>
-    </li>
-  </ul>
+    </div>
+    <div class="card-meta" v-if="props.wordData.created_at">
+      <span class="timestamp">
+        <NuxtTime :datetime="props.wordData.created_at" />
+      </span>
+    </div>
+  </li>
 </template>
 
 <style scoped>

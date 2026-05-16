@@ -5,7 +5,8 @@ import type {
   BlogPost,
   Movie,
   BskyPost,
-  Book
+  Book,
+  DictionaryWord
 } from '~/types/firehose';
 
 const { data: firehose, error } = await useAsyncData<FirehoseData>(
@@ -41,17 +42,15 @@ function isBskyPost(post: Post): post is BskyPost {
 function isBook(post: Post): post is Book {
   return (post as Book).meta?.source === 'hardcover';
 }
+
+function isDictionaryWord(post: Post): post is DictionaryWord {
+  return (post as DictionaryWord).meta?.source === 'dictionary';
+}
 </script>
 
 <template>
   <main>
-    <section class="widgets">
-      <button class="widget dictionary">
-
-      </button>
-    </section>
     <section id="feed" class="feed">
-      <DictionaryWidget word="idempotent" />.
       <ul v-if="!error && posts.length > 0" class="firehose">
         <template v-for="post in posts" :key="post.id">
 
@@ -62,6 +61,8 @@ function isBook(post: Post): post is Book {
           <TMDBWatchlist v-else-if="isMovie(post)" :movie="post" />
 
           <HardCover v-else-if="isBook(post)" :book="post" />
+
+          <DictionaryWidget v-else-if="isDictionaryWord(post)" :wordData="post" />
 
           <pre v-else>{{ post }}</pre>
         </template>

@@ -1,6 +1,6 @@
 type Meta = {
   category: string;
-  source: 'blog' | 'bluesky' | 'tmdb' | 'hardcover';
+  source: 'blog' | 'bluesky' | 'tmdb' | 'hardcover' | 'dictionary';
 };
 
 export interface Movie {
@@ -94,11 +94,20 @@ export interface BlogPost {
   meta: Meta & { source: 'blog' };
 }
 
+export interface DictionaryWord {
+  id?: string | number;
+  word: string;
+  data: any;
+  audio_data: string | null;
+  created_at: string;
+  meta: Meta & { source: 'dictionary' };
+}
+
 export interface Firehose {
   data: (Movie | BskyPost | Book)[];
 }
 
-export type Post = Movie | BskyPost | Book | BlogPost;
+export type Post = Movie | BskyPost | Book | BlogPost | DictionaryWord;
 
 export type FirehoseData =
   | Post[]

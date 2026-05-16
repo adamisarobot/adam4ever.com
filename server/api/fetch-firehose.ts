@@ -31,6 +31,30 @@ export default defineEventHandler(async (event) => {
     // Ignore draft posts
     blogs = blogs.filter((blog) => !blog.draft);
 
+    // Fetch dictionary words from D1
+    const db = event.context.cloudflare?.env?.A4E;
+    let dictionaryWords: any[] = [];
+    if (db) {
+      try {
+        const { results } = await db.prepare('SELECT word, data, audio_data, created_at FROM dictionary_entries ORDER BY created_at DESC LIMIT 50').all();
+        if (results) {
+          dictionaryWords = results.map((row: any) => ({
+            id: row.word,
+            word: row.word,
+            data: JSON.parse(row.data as string),
+            audio_data: row.audio_data,
+            created_at: row.created_at,
+            meta: {
+              source: 'dictionary',
+              category: 'dictionary'
+            }
+          }));
+        }
+      } catch (err) {
+        console.error('Failed to fetch dictionary words from D1:', err);
+      }
+    }
+
     // Merge and sort data by created_at
     const mergedData = [
       ...blogs.map((blog) => ({
@@ -43,7 +67,8 @@ export default defineEventHandler(async (event) => {
       })),
       ...firehoseData.data.map((item) => ({
         ...item
-      }))
+      })),
+      ...dictionaryWords
     ].sort(
       (a, b) =>
         new Date(b.created_at as string).getTime() -
