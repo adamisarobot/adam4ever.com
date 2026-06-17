@@ -1,15 +1,8 @@
 <template>
   <header>
     <div class="github">
-      <a
-        title="Github - adamisarobot"
-        href="https://github.com/adamisarobot/adam4ever.com"
-      >
-        <NuxtImg
-          class="github-logo"
-          src="/img/github.svg"
-          alt="Github - adamisarobot"
-        />
+      <a title="Github - adamisarobot" href="https://github.com/adamisarobot/adam4ever.com">
+        <NuxtImg class="github-logo" src="/img/github.svg" alt="Github - adamisarobot" />
       </a>
     </div>
 
@@ -25,7 +18,9 @@
 
 <style scoped>
 .hero {
-  font-family: var(--font-display);
+  font-family: "Montagu Slab", system-ui;
+  /*var(--font-display); */
+  text-transform: uppercase;
   font-weight: 800;
   font-size: clamp(3rem, 10vw, 18rem);
   text-align: center;

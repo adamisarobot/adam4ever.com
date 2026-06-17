@@ -12,10 +12,6 @@ export default defineNuxtConfig({
           href: 'https://bsky.app/profile/adam4ever.com'
         },
         { rel: 'me', href: 'https://mastodon.social/@adam4ever' },
-        {
-          rel: 'me',
-          href: 'https://pxlfd.ca/i/web/profile/787314293798586242'
-        },
         { rel: 'me', href: 'https://github.com/adamisarobot' },
         { rel: 'me', href: 'https://hardcover.app/@adam4ever' },
         { rel: 'me', href: 'https://www.themoviedb.org/u/adam4ever' },
@@ -28,6 +24,10 @@ export default defineNuxtConfig({
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap'
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Boldonse&family=Montagu+Slab:opsz,wght@16..144,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'
         }
       ]
     }
