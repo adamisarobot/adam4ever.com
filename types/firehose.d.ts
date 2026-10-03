@@ -76,6 +76,9 @@ export interface Book {
   image_url: string;
   progress: number;
   started_at: string;
+  finished_at: string | null;
+  review: string | null;
+  status_id: number | null;
   created_at: string;
   meta: Meta & { source: 'hardcover' };
   data?: string;
